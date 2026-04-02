@@ -8,7 +8,7 @@ double skaiciuotiVidurki( const std::vector<int>& nd, int n )
 
     double suma = 0;
     for ( int i = 0; i < n; i++ )
-        suma += nd [ i ];
+        suma += nd[i];
 
     return suma / n;
 }
@@ -19,14 +19,14 @@ double skaiciuotiMediana( const std::vector<int>& nd, int n )
         return 0.0;
 
     std::vector<int> copy = nd;
-    std::sort( copy.begin(), copy.end() );
+    std::sort( copy.begin( ), copy.end( ) );
 
     double rezultatas;
 
     if ( n % 2 == 0 )
-        rezultatas = ( copy [ n / 2 - 1 ] + copy [ n / 2 ] ) / 2.0;
+        rezultatas = ( copy[n / 2 - 1] + copy[n / 2] ) / 2.0;
     else
-        rezultatas = copy [ n / 2 ];
+        rezultatas = copy[n / 2];
 
     return rezultatas;
 }
