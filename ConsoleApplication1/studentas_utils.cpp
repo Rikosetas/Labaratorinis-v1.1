@@ -7,29 +7,28 @@
 
 void generuotiPazymius( Studentas& s, int n )
 {
-    s.n = n;
-    s.nd.resize( n );
+    s.setN( n );
+    std::vector<int> nd( n );
 
     for ( int i = 0; i < n; i++ )
-        s.nd [ i ] = rand( ) % 10 + 1;
+        nd[i] = rand( ) % 10 + 1;
 
-    s.egzaminas = rand( ) % 10 + 1;
+    s.setNd( nd );
+    s.setEgzaminas( rand( ) % 10 + 1 );
 }
 
 void generuotiVarda( Studentas& s, int indeksas )
 {
-    std::string vardai[ ] = { "Jonas", "Petras", "Ona", "Marta", "Lukas", "Egle", "Tomas", "Inga" };
-    std::string pavardes[ ] = { "Jonaitis", "Petraitis", "Kazlauskas", "Stankevicious", "Vaitkus", "Lukosius" };
+    std::string vardai[] = { "Jonas", "Petras", "Ona", "Marta", "Lukas", "Egle", "Tomas", "Inga" };
+    std::string pavardes[] = { "Jonaitis", "Petraitis", "Kazlauskas", "Stankevicious", "Vaitkus", "Lukosius" };
 
-
-    s.vardas = vardai [ indeksas % 8 ];
-    s.pavarde = pavardes [ indeksas % 6 ];
+    s.setVardas( vardai[indeksas % 8] );
+    s.setPavarde( pavardes[indeksas % 6] );
 }
 
 int pasirinktiRusiavima( )
 {
     int pasirinkimas;
-
 
     std::cout << "\nRusiavimo pasirinkimas:\n";
     std::cout << "  1 - Pagal varda\n";
@@ -49,27 +48,19 @@ void rusiuotiStudentus( std::vector<Studentas>& studentai, int rusiavimas )
 {
     switch ( rusiavimas ) {
     case 1:
-        std::sort( studentai.begin( ), studentai.end( ), [ ] ( const Studentas& a, const Studentas& b ) {
-            return a.vardas < b.vardas;
-            } );
+        std::sort( studentai.begin( ), studentai.end( ), comparePagalVarda );
         break;
     case 2:
-        std::sort( studentai.begin( ), studentai.end( ), [ ] ( const Studentas& a, const Studentas& b ) {
-            return a.pavarde < b.pavarde;
-            } );
+        std::sort( studentai.begin( ), studentai.end( ), comparePagalPavarde );
         break;
     case 3:
-        std::sort( studentai.begin( ), studentai.end( ), [ ] ( const Studentas& a, const Studentas& b ) {
-            double ga = skaiciuotiGalutini( skaiciuotiVidurki( a.nd, a.n ), a.egzaminas );
-            double gb = skaiciuotiGalutini( skaiciuotiVidurki( b.nd, b.n ), b.egzaminas );
-            return ga > gb;
+        std::sort( studentai.begin( ), studentai.end( ), []( const Studentas& a, const Studentas& b ) {
+            return a.galBalas( false ) > b.galBalas( false );
             } );
         break;
     case 4:
-        std::sort( studentai.begin( ), studentai.end( ), [ ] ( const Studentas& a, const Studentas& b ) {
-            double ga = skaiciuotiGalutini( skaiciuotiMediana( a.nd, a.n ), a.egzaminas );
-            double gb = skaiciuotiGalutini( skaiciuotiMediana( b.nd, b.n ), b.egzaminas );
-            return ga > gb;
+        std::sort( studentai.begin( ), studentai.end( ), []( const Studentas& a, const Studentas& b ) {
+            return a.galBalas( true ) > b.galBalas( true );
             } );
         break;
     }
