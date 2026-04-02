@@ -6,7 +6,6 @@
 #include <cstdlib>
 #include <ctime>
 
-
 int main( )
 {
     std::srand( static_cast<unsigned>( std::time( nullptr ) ) );
@@ -73,11 +72,14 @@ int main( )
 
                 for ( int i = 0; i < m; i++ )
                 {
+                    std::string v, p;
                     std::cout << "  Studentas #" << ( i + 1 ) << " vardas: ";
-                    std::cin >> studentai[i].vardas;
+                    std::cin >> v;
+                    studentai[i].setVardas( v );
 
                     std::cout << "  Studentas #" << ( i + 1 ) << " pavarde: ";
-                    std::cin >> studentai[i].pavarde;
+                    std::cin >> p;
+                    studentai[i].setPavarde( p );
 
                     generuotiPazymius( studentai[i], n );
                 }
