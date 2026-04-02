@@ -118,6 +118,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -130,6 +131,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="skaiciavimas.cpp" />
     <ClCompile Include="io.cpp" />
+    <ClCompile Include="studentas.cpp" />
     <ClCompile Include="studentas_utils.cpp" />
     <ClCompile Include="testavimas.cpp" />
   </ItemGroup>
