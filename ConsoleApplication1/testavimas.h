@@ -93,7 +93,7 @@ template<typename Container>
 void rusiuotiPagalGalutini( Container& c, bool mediana )
 {
     auto comp = [mediana]( const Studentas& a, const Studentas& b ) {
-        return apskaiciuotiGalutiniBala( a, mediana ) < apskaiciuotiGalutiniBala( b, mediana );
+        return apskaiciuotiGalutiniBala( a, mediana ) > apskaiciuotiGalutiniBala( b, mediana );
     };
 
     if constexpr ( std::is_same_v<Container, std::list<Studentas>> )
@@ -118,18 +118,24 @@ void strategija1( const Container& studentai, Container& kietiakiai,
 template<typename Container>
 void strategija2( Container& studentai, Container& vargsiukai, bool mediana )
 {
-    auto it = studentai.begin( );
-    while ( it != studentai.end( ) )
+    //auto it = studentai.begin( );
+    //while ( it != studentai.end( ) )
+    //{
+    //    if ( apskaiciuotiGalutiniBala( *it, mediana ) < 5.0 )
+    //    {
+    //        vargsiukai.push_back( std::move( *it ) );
+    //        it = studentai.erase( it );
+    //    }
+    //    else
+    //    {
+    //        ++it;
+    //    }
+    //}
+
+    while ( apskaiciuotiGalutiniBala( studentai.back( ), mediana ) < 5.0 )
     {
-        if ( apskaiciuotiGalutiniBala( *it, mediana ) < 5.0 )
-        {
-            vargsiukai.push_back( std::move( *it ) );
-            it = studentai.erase( it );
-        }
-        else
-        {
-            ++it;
-        }
+        vargsiukai.push_back( studentai.back( ) );
+        studentai.pop_back( );
     }
 }
 
