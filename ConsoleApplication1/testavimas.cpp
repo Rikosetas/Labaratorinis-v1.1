@@ -26,22 +26,30 @@ void generuotiFaila( const std::string& failoVardas, int irasu_sk, int nd_kiekis
         << std::setw( 25 ) << "Vardas"
         << std::setw( 27 ) << "Pavarde";
 
+    std::stringstream a2;
+
     for ( int i = 1; i <= nd_kiekis; i++ )
-        out << std::setw( 10 ) << ( "ND" + std::to_string( i ) );
+        a2 << std::setw( 10 ) << ( "ND" + std::to_string( i ) );
+
+    out << a2.str( );
 
     out << std::setw( 10 ) << "Egz." << "\n";
 
     for ( int i = 1; i <= irasu_sk; i++ )
     {
-        out << std::left
+        std::stringstream a3;
+
+        a3 << std::left
             << std::setw( 25 ) << ( "Vardas" + std::to_string( i ) )
             << std::setw( 27 ) << ( "Pavarde" + std::to_string( i ) )
             << std::right;
 
         for ( int j = 0; j < nd_kiekis; j++ )
-            out << std::setw( 10 ) << ( rand( ) % 10 + 1 );
+            a3 << std::setw( 10 ) << ( rand( ) % 10 + 1 );
 
-        out << std::setw( 10 ) << ( rand( ) % 10 + 1 ) << "\n";
+        a3 << std::setw( 10 ) << ( rand( ) % 10 + 1 ) << "\n";
+
+        out << a3.str( );
     }
 
     out.close( );
