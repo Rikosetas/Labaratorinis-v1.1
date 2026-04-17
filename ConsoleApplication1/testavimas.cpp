@@ -16,9 +16,6 @@
 #include <list>
 #include <deque>
 
-// ---------------------------------------------------------------------------
-// Failo generavimas
-// ---------------------------------------------------------------------------
 void generuotiFaila( const std::string& failoVardas, int irasu_sk, int nd_kiekis )
 {
     std::ofstream out( failoVardas );
@@ -50,17 +47,11 @@ void generuotiFaila( const std::string& failoVardas, int irasu_sk, int nd_kiekis
     out.close( );
 }
 
-// ---------------------------------------------------------------------------
-// Backward-compatible vector nuskaitymas
-// ---------------------------------------------------------------------------
 std::vector<Studentas> nuskaitytiIsFailo( const std::string& failoVardas )
 {
     return nuskaitytiIsFailoT<std::vector<Studentas>>( failoVardas );
 }
 
-// ---------------------------------------------------------------------------
-// Kategorijos isvedimas i faila
-// ---------------------------------------------------------------------------
 void isvestiKategorijaIFaila( const std::string& failoVardas,
     const std::vector<Studentas>& studentai, bool mediana )
 {
@@ -83,19 +74,20 @@ void isvestiKategorijaIFaila( const std::string& failoVardas,
         else
             galutinis = skaiciuotiGalutini( skaiciuotiVidurki( s.nd, s.n ), s.egzaminas );
 
-        out << std::left
+        std::stringstream ss;
+
+        ss << std::left
             << std::setw( 20 ) << s.pavarde
             << std::setw( 20 ) << s.vardas
             << std::fixed << std::setprecision( 2 )
             << std::setw( 20 ) << galutinis << "\n";
+
+        out << ss.str( );
     }
 
     out.close( );
 }
 
-// ---------------------------------------------------------------------------
-// 1 tyrimas: failu generavimas ir kurimo spartos matavimas
-// ---------------------------------------------------------------------------
 void tyrimas1_failuKurimas( )
 {
     const int dydziai[] = { 1000, 10000, 100000, 1000000, 10000000 };
@@ -147,10 +139,6 @@ void tyrimas1_failuKurimas( )
     std::cout << "\nFailai sugeneruoti ir issaugoti.\n";
 }
 
-// ---------------------------------------------------------------------------
-// 2 tyrimas: konteineriu palyginimas (vector vs list vs deque)
-// Matuojami 3 zingsniai: nuskaitymas, rusiavimas, skaidymas (1-a strategija)
-// ---------------------------------------------------------------------------
 void tyrimasKonteineriu( bool mediana )
 {
     const int dydziai[] = { 1000, 10000, 100000, 1000000, 10000000 };
@@ -222,11 +210,6 @@ void tyrimasKonteineriu( bool mediana )
 
     std::cout << "\nTyrimas baigtas.\n";
 }
-
-// ---------------------------------------------------------------------------
-// 3 tyrimas: strategiju palyginimas (1-a, 2-a, 3-ia strategija)
-// Kiekvienam konteinerio tipui matomas tik skaidymo laikas.
-// ---------------------------------------------------------------------------
 
 void tyrimasStrategiju( bool mediana )
 {

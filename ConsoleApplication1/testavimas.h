@@ -28,9 +28,6 @@ std::vector<Studentas> nuskaitytiIsFailo( const std::string& failoVardas );
 void isvestiKategorijaIFaila( const std::string& failoVardas,
     const std::vector<Studentas>& studentai, bool mediana );
 
-// ---------------------------------------------------------------------------
-// Template: nuskaityti faila i bet kuri konteinerio tipa (vector, list, deque)
-// ---------------------------------------------------------------------------
 template<typename Container>
 Container nuskaitytiIsFailoT( const std::string& failoVardas )
 {
@@ -41,7 +38,10 @@ Container nuskaitytiIsFailoT( const std::string& failoVardas )
     Container out;
     std::string line;
 
-    if ( !std::getline( stream, line ) )
+    std::stringstream a2;
+    a2 << stream.rdbuf( );
+
+    if ( !std::getline( a2, line ) )
         return out;
 
     std::stringstream header_stream( line );
@@ -53,7 +53,7 @@ Container nuskaitytiIsFailoT( const std::string& failoVardas )
 
     size_t nd_count = cols.size( ) >= 3 ? cols.size( ) - 3 : 0;
 
-    while ( std::getline( stream, line ) )
+    while ( std::getline( a2, line ) )
     {
         if ( line.empty( ) )
             continue;
@@ -81,9 +81,6 @@ Container nuskaitytiIsFailoT( const std::string& failoVardas )
     return out;
 }
 
-// ---------------------------------------------------------------------------
-// Apskaiciuoti galutini bala
-// ---------------------------------------------------------------------------
 inline double apskaiciuotiGalutiniBala( const Studentas& s, bool mediana )
 {
     if ( mediana )
@@ -92,10 +89,6 @@ inline double apskaiciuotiGalutiniBala( const Studentas& s, bool mediana )
         return skaiciuotiGalutini( skaiciuotiVidurki( s.nd, s.n ), s.egzaminas );
 }
 
-// ---------------------------------------------------------------------------
-// Rusiuoti konteinerio elementus pagal galutini bala (didejimo tvarka).
-// std::list naudoja savo .sort(), vector/deque naudoja std::sort.
-// ---------------------------------------------------------------------------
 template<typename Container>
 void rusiuotiPagalGalutini( Container& c, bool mediana )
 {
@@ -109,11 +102,6 @@ void rusiuotiPagalGalutini( Container& c, bool mediana )
         std::sort( c.begin( ), c.end( ), comp );
 }
 
-// ---------------------------------------------------------------------------
-// 1 strategija: bendras konteineris lieka nepakeistas,
-// studentai kopijuojami i du naujus konteinerius (kietiakiai ir vargsiukai).
-// Neefektyvu atminties atzvilgiu - studentas egzistuoja dviejuose konteineriuose.
-// ---------------------------------------------------------------------------
 template<typename Container>
 void strategija1( const Container& studentai, Container& kietiakiai,
     Container& vargsiukai, bool mediana )
@@ -127,11 +115,6 @@ void strategija1( const Container& studentai, Container& kietiakiai,
     }
 }
 
-// ---------------------------------------------------------------------------
-// 2 strategija: vargsiukai perkeliami i nauja konteinerio, istrinami is
-// pagrindinio. Pagrindiniame konteineryje lieka tik kietiakiai.
-// Efektyviau atminciai, taciau dazni trynimai leti vector/deque konteineriams.
-// ---------------------------------------------------------------------------
 template<typename Container>
 void strategija2( Container& studentai, Container& vargsiukai, bool mediana )
 {
@@ -150,11 +133,6 @@ void strategija2( Container& studentai, Container& vargsiukai, bool mediana )
     }
 }
 
-// ---------------------------------------------------------------------------
-// 3 strategija: optimizuota naudojant std::stable_partition.
-// Visi kietiakiai perkeliami i konteinerio pradzia, vargsiukai - i gala.
-// Tada vargsiukai efektyviai iskeliami vienu range erase/splice.
-// ---------------------------------------------------------------------------
 template<typename Container>
 void strategija3( Container& studentai, Container& vargsiukai, bool mediana )
 {
@@ -176,10 +154,6 @@ void strategija3( Container& studentai, Container& vargsiukai, bool mediana )
     }
 }
 
-// ---------------------------------------------------------------------------
-// Benchmark: konteineriu palyginimas (nuskaitymas, rusiavimas, skaidymas)
-// Naudojama 1-a strategija kaip bazinis skaidymo metodas.
-// ---------------------------------------------------------------------------
 template<typename Container>
 void benchmarkKonteineris( const std::string& failas, bool mediana, int bandymu_sk,
     double& nusk_avg, double& rus_avg, double& skaid_avg )
@@ -209,11 +183,6 @@ void benchmarkKonteineris( const std::string& failas, bool mediana, int bandymu_
     skaid_avg = skaid_suma / bandymu_sk;
 }
 
-// ---------------------------------------------------------------------------
-// Benchmark: strategiju palyginimas (tik skaidymo laikas)
-// Duomenys nuskaitomi ir surusiuojami vienam karta, pries kiekviena
-// strategija konteineris nukopijuojamas (kopijos laikas nematuojamas).
-// ---------------------------------------------------------------------------
 template<typename Container>
 void benchmarkStrategijos( const std::string& failas, bool mediana, int bandymu_sk,
     double& str1_avg, double& str2_avg, double& str3_avg )
