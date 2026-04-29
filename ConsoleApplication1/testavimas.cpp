@@ -40,7 +40,15 @@ void testuotiKlase()
 {
     std::cout << "\n======== Studentas klases testai ========\n\n";
 
-    std::cout << "1. Default konstruktorius:\n";
+    std::cout << "0. Zmogus abstrakti klase:\n";
+    spausdintiRezultata( "std::is_abstract<Zmogus>::value == true",
+                         std::is_abstract<Zmogus>::value == true );
+    spausdintiRezultata( "std::is_abstract<Studentas>::value == false",
+                         std::is_abstract<Studentas>::value == false );
+    spausdintiRezultata( "Studentas yra isvestine is Zmogus",
+                         std::is_base_of<Zmogus, Studentas>::value == true );
+
+    std::cout << "\n1. Default konstruktorius:\n";
     {
         Studentas s;
         spausdintiRezultata( "vardas == \"\"",    s.vardas    == "" );

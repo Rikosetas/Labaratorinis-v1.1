@@ -2,6 +2,7 @@
 #define TESTAVIMAS_H
 
 #include "studentas.h"
+#include "zmogus.h"
 #include "skaiciavimas.h"
 #include "exceptions.h"
 
@@ -17,6 +18,7 @@
 #include <iostream>
 #include <iomanip>
 #include <iterator>
+#include <typeinfo>
 
 void generuotiFaila( const std::string& failoVardas, int irasu_sk, int nd_kiekis );
 void tyrimas1_failuKurimas( );
