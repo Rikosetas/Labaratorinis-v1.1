@@ -1,4 +1,4 @@
-# Laboratorinis darbas v1.0 - Studentu rezultatu valdymo sistema
+# Laboratorinis darbas v1.2 - Studentu rezultatu valdymo sistema
 
 ## Aprasymas
 
@@ -22,7 +22,98 @@ Galutinis = 0.4 * (vidurkis arba mediana namu darbu) + 0.6 * egzamino balas
 | v0.2 | Failu skaitymas, duomenu apdorojimas is `kursiokai.txt` |
 | v0.3 | Kodo refaktorizavimas: atskiri `.h/.cpp` failai, exception handling |
 | v0.4 | Failu generatorius, studentu skirstymas i kategorijas, spartos tyrimai |
-| **v1.0** | **Triju konteineriu palaikymas (vector, list, deque), 3 skaidymo strategijos, issamios spartos analizes, CMake palaikymas** |
+| v1.0 | Triju konteineriu palaikymas (vector, list, deque), 3 skaidymo strategijos, issamios spartos analizes, CMake palaikymas |
+| v1.1 | Konteineriu tyrimai, spartos palyginimas, kodo struktura optimizuota |
+| **v1.2** | **Rule of Five Studentas klasei, perdengtų I/O operatoriai (operator<<, operator>>), rankiniai testai** |
+
+---
+
+## v1.2 pakeitimai
+
+### Rule of Five - Studentas klase
+
+Versijoje v1.2 `struct Studentas` pertvarkytas i tikra `class Studentas` su pilnu **Rule of Five** realizavimu. Kadangi klasės duomenų nariai yra `public`, `operator<<` ir `operator>>` realizuoti kaip paprastos laisvos funkcijos (be `friend`).
+
+#### Rule of Five metodai
+
+| Metodas | Aprasymas |
+|---------|-----------|
+| `Studentas()` | **Default konstruktorius** — inicializuoja tuščius duomenis: `vardas=""`, `pavarde=""`, `nd={}`, `n=0`, `egzaminas=0` |
+| `~Studentas()` | **Destruktorius** — eksplicitinis, atlaisvina resursus (std::string ir std::vector automatiskai valo save) |
+| `Studentas(const Studentas& kitas)` | **Kopijavimo konstruktorius** — pilnai kopijuoja visus laukus, originalo nepakeicia |
+| `Studentas& operator=(const Studentas& kitas)` | **Kopijavimo priskyrimo operatorius** — kopijuoja laukus, tikrina savipriskyrimą (`this == &kitas`) |
+| `Studentas(Studentas&& kitas) noexcept` | **Perkėlimo konstruktorius** — perima resursus (std::move), saltinio `n=0`, `egzaminas=0` |
+| `Studentas& operator=(Studentas&& kitas) noexcept` | **Perkėlimo priskyrimo operatorius** — perima resursus, tikrina saviperkėlimą |
+
+#### Perdengtų I/O operatorių aprašas
+
+| Operatorius | Sintaksė | Aprasymas |
+|-------------|----------|-----------|
+| `operator<<` | `out << studentas` | Isveda studento duomenis i bet kuri `std::ostream` srautą (ekranas arba failas) |
+| `operator>>` | `in >> studentas` | Nuskaito studento duomenis is bet kurio `std::istream` srautą (klaviatura arba failas) |
+
+**Formatas (simetriskas abiem operatoriams):**
+```
+vardas pavarde n nd[0] nd[1] ... nd[n-1] egzaminas
+```
+
+Pvz.: `Jonas Jonaitis 3 8 9 7 10`
+
+#### Duomenų įvesties ir išvesties būdai
+
+| Būdas | Kaip naudoti | Pavyzdys |
+|-------|-------------|---------|
+| **Rankinis ivedimas** (klaviatura) | `std::cin >> studentas` | Vartotojas iraso: `Jonas Jonaitis 3 8 9 7 10` |
+| **Automatinis ivedimas** (is eilutes) | `std::istringstream iss("..."); iss >> s;` | Ivedimas is programiskai sukurtos eilutes |
+| **Ivedimas is failo** | `std::ifstream f("failas.txt"); f >> s;` | Nuskaitymas is tekstinio failo |
+| **Isvedimas i ekrana** | `std::cout << studentas` | Rodo `Jonas Jonaitis 3 8 9 7 10` |
+| **Isvedimas i faila** | `std::ofstream f("failas.txt"); f << s;` | Iraso i faila tuo paciu formatu |
+
+#### Kodo pavyzdžiai
+
+**Isvedimas i ekrana:**
+```cpp
+Studentas s;
+s.vardas = "Jonas"; s.pavarde = "Jonaitis";
+s.n = 2; s.nd = {8, 9}; s.egzaminas = 10;
+std::cout << s;
+// Isvedimas: Jonas Jonaitis 2 8 9 10
+```
+
+**Ivedimas is failo:**
+```cpp
+std::ifstream failas("studentai.txt");
+Studentas s;
+failas >> s;
+// Nuskaito viena eilute: "Jonas Jonaitis 2 8 9 10"
+```
+
+**Perkėlimo operacijos (move semantics):**
+```cpp
+Studentas s1;
+s1.vardas = "Petras"; s1.n = 3; s1.nd = {7,8,9}; s1.egzaminas = 6;
+
+Studentas s2 = std::move(s1);  // perkėlimo konstruktorius
+// s2 turi visus s1 duomenis
+// s1.n == 0, s1.egzaminas == 0 (saltinis istusejo)
+```
+
+### Rankiniai testai (testuotiKlase)
+
+Pasirinkus meniu punkta **8**, paleidziamas `testuotiKlase()` — rankinis testas, kuris tikrina kiekviena Rule of Five metoda ir abu I/O operatorius. Kiekvienas patikrinimas spausdina `[OK]` arba `[FAIL]`.
+
+| Testuojamas metodas | Patikrinimas |
+|--------------------|--------------|
+| Default konstruktorius | Tikriname ar `n==0`, `egzaminas==0`, `vardas==""` |
+| Kopijavimo konstruktorius | Keičiame kopija, tikriname ar originalas nepakito |
+| Kopijavimo priskyrimas | Analogiskai, plus savipriskyrimų saugumas |
+| Perkėlimo konstruktorius | Tikriname ar šaltinis istusejo (`n==0`) |
+| Perkėlimo priskyrimas | Analogiskai, plus saviperkėlimo saugumas |
+| `operator<<` | Isvedame i `ostringstream`, lyginame su laukiama eilute |
+| `operator>>` | Skaitome is `istringstream`, tikriname kiekvieną lauką |
+| Destruktorius | Implicitinis testas per scope pabaiga |
+
+---
 
 ### Pagrindiniai v1.0 pakeitimai
 
@@ -91,7 +182,8 @@ cmake --build . --config Release
 | 5 | 1 tyrimas | Failu generavimas ir kurimo spartos matavimas |
 | 6 | 2 tyrimas | Konteineriu palyginimas (vector vs list vs deque) |
 | 7 | 3 tyrimas | Strategiju palyginimas (1, 2, 3 strategijos) |
-| 8 | Baigti | Uzbaigti programos darba |
+| **8** | **Testuoti Studentas klase** | **Rule of Five + I/O operatoriu rankinis testas** |
+| 9 | Baigti | Uzbaigti programos darba |
 
 ### Testavimo eiga
 
@@ -284,18 +376,19 @@ Naudojamas `std::stable_partition` algoritmas, kuris vienu perejimu perkelia vis
 ## Projekto struktura
 
 ```
-ConsoleApplication1/
+Labaratorinis-v0.1/
 ├── CMakeLists.txt                     - CMake kompiliavimo failas
 ├── README.md                          - Dokumentacija
 ├── .gitignore                         - Git ignoruojami failai
 ├── ConsoleApplication1.sln            - Visual Studio sprendimas
 └── ConsoleApplication1/
-    ├── main.cpp                       - Pagrindine programa su meniu
+    ├── main.cpp                       - Pagrindine programa su meniu (9 punktai)
     ├── io.cpp / io.h                  - Ivedimo/isvedimo funkcijos
     ├── skaiciavimas.cpp / .h          - Balu skaiciavimo funkcijos
-    ├── studentas.h                    - Studentas struktura
+    ├── studentas.h                    - Studentas klase (Rule of Five + I/O operatoriu deklaracijos)
+    ├── studentas.cpp                  - Studentas klases realizacija (Rule of Five + operator<<, >>)
     ├── studentas_utils.cpp / .h       - Studentu pagalbines funkcijos
-    ├── testavimas.cpp / .h            - Konteineriu/strategiju tyrimai, template funkcijos
+    ├── testavimas.cpp / .h            - Tyrimai + testuotiKlase() rankinis testas
     ├── exceptions.h                   - Klaidu klases (FailoKlaida, DuomenuKlaida)
     └── ConsoleApplication1.vcxproj    - Visual Studio projekto failas
 ```
