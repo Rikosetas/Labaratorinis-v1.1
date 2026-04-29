@@ -2,6 +2,7 @@
 #define ZMOGUS_H
 
 #include <string>
+#include <iostream>
 
 class Zmogus
 {
