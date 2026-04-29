@@ -119,20 +119,6 @@ void strategija1( const Container& studentai, Container& kietiakiai,
 template<typename Container>
 void strategija2( Container& studentai, Container& vargsiukai, bool mediana )
 {
-    //auto it = studentai.begin( );
-    //while ( it != studentai.end( ) )
-    //{
-    //    if ( apskaiciuotiGalutiniBala( *it, mediana ) < 5.0 )
-    //    {
-    //        vargsiukai.push_back( std::move( *it ) );
-    //        it = studentai.erase( it );
-    //    }
-    //    else
-    //    {
-    //        ++it;
-    //    }
-    //}
-
     while ( apskaiciuotiGalutiniBala( studentai.back( ), mediana ) < 5.0 )
     {
         vargsiukai.push_back( studentai.back( ) );

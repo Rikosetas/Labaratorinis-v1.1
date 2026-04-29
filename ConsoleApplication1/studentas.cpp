@@ -61,7 +61,6 @@ Studentas& Studentas::operator=( Studentas&& kitas ) noexcept
     return *this;
 }
 
-// Formatas: vardas pavarde n nd[0] nd[1] ... nd[n-1] egzaminas
 std::ostream& operator<<( std::ostream& out, const Studentas& s )
 {
     out << s.vardas << " " << s.pavarde << " " << s.n;

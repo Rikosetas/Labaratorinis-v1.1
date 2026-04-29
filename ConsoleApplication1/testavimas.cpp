@@ -40,7 +40,6 @@ void testuotiKlase()
 {
     std::cout << "\n======== Studentas klases testai ========\n\n";
 
-    // --- 1. Default konstruktorius ---
     std::cout << "1. Default konstruktorius:\n";
     {
         Studentas s;
@@ -51,7 +50,6 @@ void testuotiKlase()
         spausdintiRezultata( "nd.empty()",        s.nd.empty()      );
     }
 
-    // --- 2. Kopijavimo konstruktorius ---
     std::cout << "\n2. Kopijavimo konstruktorius:\n";
     {
         Studentas s1 = sukurtiTestoStudenta();
@@ -69,7 +67,6 @@ void testuotiKlase()
         spausdintiRezultata( "originalas nepakito (nd[0])",  s1.nd[ 0 ] == 8       );
     }
 
-    // --- 3. Kopijavimo priskyrimo operatorius ---
     std::cout << "\n3. Kopijavimo priskyrimas (operator=):\n";
     {
         Studentas s1 = sukurtiTestoStudenta();
@@ -84,12 +81,10 @@ void testuotiKlase()
         s2.pavarde = "Kazlauskas";
         spausdintiRezultata( "originalas nepakito (pavarde)", s1.pavarde == "Jonaitis" );
 
-        // savipriskyrimass
         s1 = s1;
         spausdintiRezultata( "savipriskyrimass saugus",    s1.vardas == "Jonas" );
     }
 
-    // --- 4. Perkėlimo konstruktorius ---
     std::cout << "\n4. Perkėlimo konstruktorius (move ctor):\n";
     {
         Studentas s1 = sukurtiTestoStudenta();
@@ -103,7 +98,6 @@ void testuotiKlase()
         spausdintiRezultata( "s1.egzaminas == 0",             s1.egzaminas == 0 );
     }
 
-    // --- 5. Perkėlimo priskyrimo operatorius ---
     std::cout << "\n5. Perkėlimo priskyrimas (move operator=):\n";
     {
         Studentas s1 = sukurtiTestoStudenta();
@@ -117,12 +111,10 @@ void testuotiKlase()
         spausdintiRezultata( "s1.n == 0 (saltinis istusejo)", s1.n         == 0 );
         spausdintiRezultata( "s1.egzaminas == 0",             s1.egzaminas == 0 );
 
-        // saviperkėlimas
         s2 = std::move( s2 );
         spausdintiRezultata( "saviperkėlimas saugus", s2.n == 3 );
     }
 
-    // --- 6. operator<< ---
     std::cout << "\n6. operator<< (isvedimas):\n";
     {
         Studentas s = sukurtiTestoStudenta();
@@ -139,7 +131,6 @@ void testuotiKlase()
         spausdintiRezultata( "operator<< iraše i faila", true );
     }
 
-    // --- 7. operator>> ---
     std::cout << "\n7. operator>> (ivedimas):\n";
     {
         std::istringstream iss( "Ona Kazlauskiene 2 6 8 9" );
@@ -151,7 +142,6 @@ void testuotiKlase()
         spausdintiRezultata( "nd == {6,8}",                s.nd        == std::vector<int>{ 6, 8 } );
         spausdintiRezultata( "egzaminas == 9",             s.egzaminas == 9              );
 
-        // nuskaitymas is failo
         std::ifstream failas( "test_studentas.txt" );
         Studentas sIsFailo;
         failas >> sIsFailo;
@@ -162,7 +152,6 @@ void testuotiKlase()
                              sIsFailo.n == 3 );
     }
 
-    // --- 8. Destruktorius ---
     std::cout << "\n8. Destruktorius:\n";
     {
         {
