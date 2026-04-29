@@ -100,7 +100,23 @@ Studentas s2 = std::move(s1);  // perkėlimo konstruktorius
 
 ### Rankiniai testai (testuotiKlase)
 
-Pasirinkus meniu punkta **8**, paleidziamas `testuotiKlase()` — rankinis testas, kuris tikrina kiekviena Rule of Five metoda ir abu I/O operatorius. Kiekvienas patikrinimas spausdina `[OK]` arba `[FAIL]`.
+Pasirinkus meniu punkta **8**, paleidziamas `testuotiKlase()` — rankinis testas, kuris tikrina kiekviena Rule of Five metoda ir abu I/O operatorius. Kiekvienas patikrinimas spausdina `[OK]` arba `[FAIL]`. Pabaigoje parodoma bendra suvestine: kiek testu praejo ir kiek nepraejo.
+
+**Testu isvedimo pavyzdys:**
+```
+======== Studentas klases testai ========
+
+1. Default konstruktorius:
+  [OK]   vardas == ""
+  [OK]   pavarde == ""
+  [OK]   n == 0
+  [OK]   egzaminas == 0
+  [OK]   nd.empty()
+...
+=========================================
+Rezultatai: 35 OK, 0 FAIL
+Visi testai praejo sekmingai!
+```
 
 | Testuojamas metodas | Patikrinimas |
 |--------------------|--------------|
