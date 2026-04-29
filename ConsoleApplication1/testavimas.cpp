@@ -16,9 +16,13 @@
 #include <list>
 #include <deque>
 
+static int g_ok   = 0;
+static int g_fail = 0;
+
 static void spausdintiRezultata( const std::string& testas, bool rezultatas )
 {
     std::cout << "  " << ( rezultatas ? "[OK]  " : "[FAIL]" ) << " " << testas << "\n";
+    if ( rezultatas ) ++g_ok; else ++g_fail;
 }
 
 static Studentas sukurtiTestoStudenta()
@@ -168,7 +172,14 @@ void testuotiKlase()
     }
 
     std::cout << "\n=========================================\n";
-    std::cout << "Testai baigti.\n\n";
+    std::cout << "Rezultatai: " << g_ok << " OK, " << g_fail << " FAIL\n";
+    if ( g_fail == 0 )
+        std::cout << "Visi testai praejo sekmingai!\n\n";
+    else
+        std::cout << "Kai kurie testai nepraejo!\n\n";
+
+    g_ok = 0;
+    g_fail = 0;
 }
 
 void generuotiFaila( const std::string& failoVardas, int irasu_sk, int nd_kiekis )
