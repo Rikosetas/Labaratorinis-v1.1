@@ -1,4 +1,4 @@
-# Laboratorinis darbas v1.2 - Studentu rezultatu valdymo sistema
+# Laboratorinis darbas v1.5 - Studentu rezultatu valdymo sistema
 
 ## Aprasymas
 
@@ -24,7 +24,87 @@ Galutinis = 0.4 * (vidurkis arba mediana namu darbu) + 0.6 * egzamino balas
 | v0.4 | Failu generatorius, studentu skirstymas i kategorijas, spartos tyrimai |
 | v1.0 | Triju konteineriu palaikymas (vector, list, deque), 3 skaidymo strategijos, issamios spartos analizes, CMake palaikymas |
 | v1.1 | Konteineriu tyrimai, spartos palyginimas, kodo struktura optimizuota |
-| **v1.2** | **Rule of Five Studentas klasei, perdengtų I/O operatoriai (operator<<, operator>>), rankiniai testai** |
+| v1.2 | Rule of Five Studentas klasei, perdengtų I/O operatoriai (operator<<, operator>>), rankiniai testai |
+| **v1.5** | **Abstrakti bazine klase Zmogus, Studentas isvestine is Zmogus, paveldejimas, visi v1.2 testai patikrinti** |
+
+---
+
+## v1.5 pakeitimai
+
+### Klasu hierarchija
+
+Versijoje v1.5 ivedama dvieju klasu hierarchija:
+
+```
+Zmogus  (abstrakti bazine klase - objektu kurti negalima)
+   |
+   └── Studentas  (isvestine klase - objektai kuriami)
+```
+
+### Zmogus - abstrakti bazine klase
+
+Faile `zmogus.h` / `zmogus.cpp` apibreziama abstrakti klase `Zmogus`, skirta bendrai aprasyti zmogaus duomenis. Klase yra **abstrakti** del grynai virtualaus destruktoriaus (`virtual ~Zmogus() = 0`), todel tiesiogiai sukurti `Zmogus` tipo objektu **negalima**.
+
+```cpp
+class Zmogus {
+public:
+    std::string vardas;
+    std::string pavarde;
+
+    Zmogus();
+    virtual ~Zmogus() = 0;  // grynai virtualus destruktorius -> klase abstrakti
+};
+```
+
+| Bandymas sukurti Zmogus objekta | Rezultatas |
+|---------------------------------|------------|
+| `Zmogus z;` | **Kompiliavimo klaida** - abstrakcios klases objekto kurti negalima |
+| `Studentas s;` | Leidžiama - Studentas yra isvestine klase |
+
+### Studentas - isvestine klase
+
+`Studentas` paveldi `Zmogus` ir issaugo visus **Rule of Five** metodus is v1.2. `vardas` ir `pavarde` laukai perkelti i bazine klase `Zmogus`, `Studentas` turi tik savo specifinius laukus:
+
+```cpp
+class Studentas : public Zmogus {
+public:
+    std::vector<int> nd;
+    int n;
+    int egzaminas;
+    // ... Rule of Five metodai
+};
+```
+
+#### Konstruktoriai su paveldejimo irasais
+
+| Metodas | Bazines klases inicializavimas |
+|---------|-------------------------------|
+| `Studentas()` | `Zmogus()` — tusti vardas ir pavarde |
+| `Studentas(const Studentas& k)` | `Zmogus(k)` — kopijuoja bazines klases laukus |
+| `Studentas(Studentas&& k)` | `Zmogus()` + rankinis `std::move` vardui/pavardei |
+| Destruktorius | `~Studentas() noexcept override` |
+
+### Abstraktumo demonstravimas testais
+
+Meniu punktas **8** paleidzia `testuotiKlase()`, kuris patikrina:
+
+```
+0. Zmogus abstrakti klase:
+  [OK]   std::is_abstract<Zmogus>::value == true
+  [OK]   std::is_abstract<Studentas>::value == false
+  [OK]   Studentas yra isvestine is Zmogus
+```
+
+`std::is_abstract<Zmogus>::value` grazina `true` kompiliavimo metu — tai patikima demonstracija, kad `Zmogus` yra abstrakti klase. `std::is_base_of<Zmogus, Studentas>::value` patvirtina paveldejimo rysio egzistavima.
+
+### Projekto struktura v1.5
+
+```
+ConsoleApplication1/
+    ├── zmogus.h / zmogus.cpp      - Abstrakti bazine klase Zmogus
+    ├── studentas.h / studentas.cpp - Isvestine klase Studentas (is Zmogus)
+    ├── ...                         - Kiti failai nepakite
+```
 
 ---
 
@@ -401,8 +481,8 @@ Labaratorinis-v0.1/
     ├── main.cpp                       - Pagrindine programa su meniu (9 punktai)
     ├── io.cpp / io.h                  - Ivedimo/isvedimo funkcijos
     ├── skaiciavimas.cpp / .h          - Balu skaiciavimo funkcijos
-    ├── studentas.h                    - Studentas klase (Rule of Five + I/O operatoriu deklaracijos)
-    ├── studentas.cpp                  - Studentas klases realizacija (Rule of Five + operator<<, >>)
+    ├── zmogus.h / zmogus.cpp          - Abstrakti bazine klase Zmogus
+    ├── studentas.h / studentas.cpp    - Isvestine klase Studentas (Rule of Five + operator<<, >>)
     ├── studentas_utils.cpp / .h       - Studentu pagalbines funkcijos
     ├── testavimas.cpp / .h            - Tyrimai + testuotiKlase() rankinis testas
     ├── exceptions.h                   - Klaidu klases (FailoKlaida, DuomenuKlaida)
