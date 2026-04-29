@@ -24,6 +24,9 @@
     <ClCompile Include="io.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="studentas.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="studentas_utils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
