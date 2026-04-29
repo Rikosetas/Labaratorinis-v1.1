@@ -22,6 +22,7 @@ void generuotiFaila( const std::string& failoVardas, int irasu_sk, int nd_kiekis
 void tyrimas1_failuKurimas( );
 void tyrimasKonteineriu( bool mediana );
 void tyrimasStrategiju( bool mediana );
+void testuotiKlase( );
 
 std::vector<Studentas> nuskaitytiIsFailo( const std::string& failoVardas );
 
