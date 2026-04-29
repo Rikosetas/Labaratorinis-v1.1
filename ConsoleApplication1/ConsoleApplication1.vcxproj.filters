@@ -24,6 +24,9 @@
     <ClCompile Include="io.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="zmogus.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="studentas.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -35,6 +38,9 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="zmogus.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="studentas.h">
       <Filter>Header Files</Filter>
     </ClInclude>
