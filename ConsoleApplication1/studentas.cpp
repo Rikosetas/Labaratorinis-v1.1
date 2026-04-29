@@ -6,7 +6,7 @@ Studentas::Studentas()
 {
 }
 
-Studentas::~Studentas()
+Studentas::~Studentas() noexcept
 {
 }
 

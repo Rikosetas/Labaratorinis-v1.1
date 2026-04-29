@@ -15,7 +15,7 @@ public:
     int egzaminas;
 
     Studentas();
-    ~Studentas();
+    ~Studentas() noexcept;
     Studentas( const Studentas& kitas );
     Studentas& operator=( const Studentas& kitas );
     Studentas( Studentas&& kitas ) noexcept;
