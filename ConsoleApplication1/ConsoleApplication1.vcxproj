@@ -130,6 +130,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="skaiciavimas.cpp" />
     <ClCompile Include="io.cpp" />
+    <ClCompile Include="studentas.cpp" />
     <ClCompile Include="studentas_utils.cpp" />
     <ClCompile Include="testavimas.cpp" />
   </ItemGroup>

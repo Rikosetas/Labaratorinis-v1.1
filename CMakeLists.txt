@@ -18,6 +18,7 @@ add_executable(programa
     ConsoleApplication1/main.cpp
     ConsoleApplication1/io.cpp
     ConsoleApplication1/skaiciavimas.cpp
+    ConsoleApplication1/studentas.cpp
     ConsoleApplication1/studentas_utils.cpp
     ConsoleApplication1/testavimas.cpp
 )

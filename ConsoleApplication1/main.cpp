@@ -33,10 +33,11 @@ int main( )
         std::cout << "  5 - 1 tyrimas: Failu generavimas\n";
         std::cout << "  6 - 2 tyrimas: Konteineriu palyginimas (vector, list, deque)\n";
         std::cout << "  7 - 3 tyrimas: Strategiju palyginimas (1, 2, 3 strategijos)\n";
-        std::cout << "  8 - Baigti darba\n";
+        std::cout << "  8 - Testuoti Studentas klase (Rule of Five + I/O operatoriai)\n";
+        std::cout << "  9 - Baigti darba\n";
         std::cout << "Pasirinkimas: ";
 
-        if ( !skaitytiSveika( meniu, 1, 8 ) )
+        if ( !skaitytiSveika( meniu, 1, 9 ) )
         {
             std::cout << "Neteisinga reiksme.\n";
             continue;
@@ -142,6 +143,12 @@ int main( )
 
             case 8:
             {
+                testuotiKlase();
+                break;
+            }
+
+            case 9:
+            {
                 std::cout << "Programa baigta.\n";
                 break;
             }
@@ -160,7 +167,7 @@ int main( )
             std::cerr << "Klaida: " << e.what( ) << "\n";
         }
 
-    } while ( meniu != 8 );
+    } while ( meniu != 9 );
 
     return 0;
 }
