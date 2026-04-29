@@ -1,21 +1,19 @@
 #ifndef STUDENTAS_H
 #define STUDENTAS_H
 
-#include <string>
+#include "zmogus.h"
 #include <vector>
 #include <iostream>
 
-class Studentas
+class Studentas : public Zmogus
 {
 public:
-    std::string vardas;
-    std::string pavarde;
     std::vector<int> nd;
     int n;
     int egzaminas;
 
     Studentas();
-    ~Studentas() noexcept;
+    ~Studentas() noexcept override;
     Studentas( const Studentas& kitas );
     Studentas& operator=( const Studentas& kitas );
     Studentas( Studentas&& kitas ) noexcept;

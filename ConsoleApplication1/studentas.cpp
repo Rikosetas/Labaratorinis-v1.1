@@ -2,7 +2,7 @@
 #include <utility>
 
 Studentas::Studentas()
-    : vardas( "" ), pavarde( "" ), nd( ), n( 0 ), egzaminas( 0 )
+    : Zmogus(), nd(), n( 0 ), egzaminas( 0 )
 {
 }
 
@@ -11,8 +11,7 @@ Studentas::~Studentas() noexcept
 }
 
 Studentas::Studentas( const Studentas& kitas )
-    : vardas( kitas.vardas ),
-      pavarde( kitas.pavarde ),
+    : Zmogus( kitas ),
       nd( kitas.nd ),
       n( kitas.n ),
       egzaminas( kitas.egzaminas )
@@ -34,12 +33,13 @@ Studentas& Studentas::operator=( const Studentas& kitas )
 }
 
 Studentas::Studentas( Studentas&& kitas ) noexcept
-    : vardas( std::move( kitas.vardas ) ),
-      pavarde( std::move( kitas.pavarde ) ),
+    : Zmogus(),
       nd( std::move( kitas.nd ) ),
       n( kitas.n ),
       egzaminas( kitas.egzaminas )
 {
+    vardas          = std::move( kitas.vardas );
+    pavarde         = std::move( kitas.pavarde );
     kitas.n         = 0;
     kitas.egzaminas = 0;
 }
