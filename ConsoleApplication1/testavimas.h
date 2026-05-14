@@ -26,6 +26,10 @@ void tyrimasKonteineriu( bool mediana );
 void tyrimasStrategiju( bool mediana );
 void testuotiKlase( );
 
+void tyrimasVectorPushBack( );
+void tyrimasVectorReallocations( );
+void tyrimasVectorStudentai( bool mediana );
+
 std::vector<Studentas> nuskaitytiIsFailo( const std::string& failoVardas );
 
 void isvestiKategorijaIFaila( const std::string& failoVardas,

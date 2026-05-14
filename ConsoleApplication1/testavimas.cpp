@@ -3,6 +3,7 @@
 #include "studentas_utils.h"
 #include "exceptions.h"
 #include "studentu_io.h"
+#include "vector_stl.h"
 
 #include <iostream>
 #include <fstream>
@@ -477,4 +478,181 @@ void tyrimasStrategiju( bool mediana )
 
     if ( !rastasVienas )
         std::cout << "  Nera failu - pirma paleiskite 1 tyrima.\n";
+}
+
+// =================================================================
+// v3.0 tyrimai: std::vector vs Vector
+// =================================================================
+
+void tyrimasVectorPushBack( )
+{
+    const size_t dydziai[] = { 10000, 100000, 1000000, 10000000, 100000000 };
+    const int n = sizeof( dydziai ) / sizeof( dydziai[0] );
+
+    std::cout << "\n================ V3.0 TYRIMAS: push_back greitis (std::vector vs Vector) ================\n";
+    std::cout << "Matuojama tuscio konteinerio uzpildymas push_back metodu.\n\n";
+
+    std::cout << std::left
+        << std::setw( 15 ) << "Elementu sk."
+        << std::setw( 20 ) << "std::vector (s)"
+        << std::setw( 20 ) << "Vector (s)"
+        << std::setw( 15 ) << "Lyginimas"
+        << "\n";
+    std::cout << std::string( 70, '-' ) << "\n";
+
+    for ( int i = 0; i < n; i++ )
+    {
+        size_t sz = dydziai[i];
+
+        double t_std = 0.0;
+        {
+            auto t1 = std::chrono::high_resolution_clock::now( );
+            std::vector<int> v1;
+            for ( size_t k = 1; k <= sz; k++ )
+                v1.push_back( static_cast<int>( k ) );
+            auto t2 = std::chrono::high_resolution_clock::now( );
+            t_std = std::chrono::duration<double>( t2 - t1 ).count( );
+        }
+
+        double t_my = 0.0;
+        {
+            auto t1 = std::chrono::high_resolution_clock::now( );
+            Vector<int> v2;
+            for ( size_t k = 1; k <= sz; k++ )
+                v2.push_back( static_cast<int>( k ) );
+            auto t2 = std::chrono::high_resolution_clock::now( );
+            t_my = std::chrono::duration<double>( t2 - t1 ).count( );
+        }
+
+        double rel = ( t_std > 0.0 ) ? ( t_my / t_std ) : 0.0;
+
+        std::cout << std::left << std::setw( 15 ) << sz
+            << std::fixed << std::setprecision( 5 )
+            << std::setw( 20 ) << t_std
+            << std::setw( 20 ) << t_my
+            << std::setprecision( 2 ) << "x" << rel << "\n";
+    }
+
+    std::cout << "\nTyrimas baigtas.\n";
+}
+
+void tyrimasVectorReallocations( )
+{
+    const size_t SZ = 100000000;
+
+    std::cout << "\n================ V3.0 TYRIMAS: Atminties perskirstymai (push_back iki 100M) ================\n\n";
+
+    std::cout << "Pildomas Vector iki " << SZ << " elementu, skaiciuojami perskirstymai...\n";
+
+    Vector<int> v2;
+    for ( size_t k = 1; k <= SZ; k++ )
+        v2.push_back( static_cast<int>( k ) );
+
+    std::cout << "\nVector rezultatai:\n";
+    std::cout << "  Galutinis size:     " << v2.size( ) << "\n";
+    std::cout << "  Galutinis capacity: " << v2.capacity( ) << "\n";
+    std::cout << "  Perskirstymu sk.:   " << v2.realloc_count( ) << "\n";
+
+    std::cout << "\nstd::vector turi panasu elgesi (capacity dvigubinasi).\n";
+    std::cout << "Standartas neapibrezia tikslaus augimo koef., bet pas MSVC tai apie 1.5x,\n";
+    std::cout << "todel std::vector reallocation skaicius bus 1-2 kartus didesnis nei Vector x2 augimo.\n";
+}
+
+void tyrimasVectorStudentai( bool mediana )
+{
+    const int dydziai[] = { 100000, 1000000, 10000000 };
+    const std::string pavadinimai[] = {
+        "studentai_100000.txt",
+        "studentai_1000000.txt",
+        "studentai_10000000.txt"
+    };
+    const int bandymu_sk = 3;
+
+    std::cout << "\n================ V3.0 TYRIMAS: Studentu programa std::vector vs Vector ================\n";
+    std::cout << "Matuojamas pilnas darbas: nuskaitymas + rusiavimas + skaidymas (1 strategija).\n\n";
+
+    std::cout << std::left
+        << std::setw( 14 ) << "Irasu sk."
+        << std::setw( 20 ) << "std::vector (s)"
+        << std::setw( 20 ) << "Vector (s)"
+        << "\n";
+    std::cout << std::string( 60, '-' ) << "\n";
+
+    for ( int i = 0; i < 3; i++ )
+    {
+        std::ifstream test( pavadinimai[i] );
+        if ( !test.is_open( ) )
+        {
+            std::cout << std::left << std::setw( 14 ) << dydziai[i]
+                << "Failas nerastas! Pirma paleiskite 1 tyrima.\n";
+            continue;
+        }
+        test.close( );
+
+        double suma_std = 0.0;
+        double suma_my  = 0.0;
+
+        for ( int b = 0; b < bandymu_sk; b++ )
+        {
+            auto t1 = std::chrono::high_resolution_clock::now( );
+            std::vector<Studentas> data1 = nuskaitytiIsFailoT<std::vector<Studentas>>( pavadinimai[i] );
+            rusiuotiPagalGalutini( data1, mediana );
+            std::vector<Studentas> kiet1, varg1;
+            strategija1( data1, kiet1, varg1, mediana );
+            auto t2 = std::chrono::high_resolution_clock::now( );
+            suma_std += std::chrono::duration<double>( t2 - t1 ).count( );
+        }
+
+        for ( int b = 0; b < bandymu_sk; b++ )
+        {
+            auto t1 = std::chrono::high_resolution_clock::now( );
+            std::ifstream stream( pavadinimai[i] );
+            std::string line;
+            std::getline( stream, line );
+            std::stringstream header( line );
+            std::vector<std::string> cols;
+            std::string col;
+            while ( header >> col ) cols.push_back( col );
+            size_t nd_count = cols.size( ) >= 3 ? cols.size( ) - 3 : 0;
+
+            Vector<Studentas> data2;
+            while ( std::getline( stream, line ) )
+            {
+                if ( line.empty( ) ) continue;
+                std::stringstream ss( line );
+                Studentas s;
+                s.n = static_cast<int>( nd_count );
+                s.nd.resize( nd_count );
+                ss >> s.vardas >> s.pavarde;
+                for ( size_t j = 0; j < nd_count; j++ ) ss >> s.nd[j];
+                ss >> s.egzaminas;
+                data2.push_back( s );
+            }
+            stream.close( );
+
+            std::sort( data2.begin( ), data2.end( ), [mediana]( const Studentas& a, const Studentas& b ) {
+                return apskaiciuotiGalutiniBala( a, mediana ) > apskaiciuotiGalutiniBala( b, mediana );
+            } );
+
+            Vector<Studentas> kiet2, varg2;
+            for ( size_t k = 0; k < data2.size( ); k++ )
+            {
+                if ( apskaiciuotiGalutiniBala( data2[k], mediana ) >= 5.0 )
+                    kiet2.push_back( data2[k] );
+                else
+                    varg2.push_back( data2[k] );
+            }
+
+            auto t2 = std::chrono::high_resolution_clock::now( );
+            suma_my += std::chrono::duration<double>( t2 - t1 ).count( );
+        }
+
+        std::cout << std::left << std::setw( 14 ) << dydziai[i]
+            << std::fixed << std::setprecision( 5 )
+            << std::setw( 20 ) << ( suma_std / bandymu_sk )
+            << std::setw( 20 ) << ( suma_my / bandymu_sk )
+            << "\n";
+    }
+
+    std::cout << "\nTyrimas baigtas.\n";
 }

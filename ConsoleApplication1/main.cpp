@@ -26,18 +26,21 @@ int main( )
 
     do {
         std::cout << "\n========== MENIU ==========\n";
-        std::cout << "  1 - Ivesti duomenis rankiniu budu\n";
-        std::cout << "  2 - Generuoti tik pazymius\n";
-        std::cout << "  3 - Generuoti vardus, pavardes ir pazymius\n";
-        std::cout << "  4 - Nuskaityti studentus is failo\n";
-        std::cout << "  5 - 1 tyrimas: Failu generavimas\n";
-        std::cout << "  6 - 2 tyrimas: Konteineriu palyginimas (vector, list, deque)\n";
-        std::cout << "  7 - 3 tyrimas: Strategiju palyginimas (1, 2, 3 strategijos)\n";
-        std::cout << "  8 - Testuoti Studentas klase (Rule of Five + I/O operatoriai)\n";
-        std::cout << "  9 - Baigti darba\n";
+        std::cout << "  1  - Ivesti duomenis rankiniu budu\n";
+        std::cout << "  2  - Generuoti tik pazymius\n";
+        std::cout << "  3  - Generuoti vardus, pavardes ir pazymius\n";
+        std::cout << "  4  - Nuskaityti studentus is failo\n";
+        std::cout << "  5  - 1 tyrimas: Failu generavimas\n";
+        std::cout << "  6  - 2 tyrimas: Konteineriu palyginimas (vector, list, deque)\n";
+        std::cout << "  7  - 3 tyrimas: Strategiju palyginimas (1, 2, 3 strategijos)\n";
+        std::cout << "  8  - Testuoti Studentas klase (Rule of Five + I/O operatoriai)\n";
+        std::cout << "  9  - V3.0 tyrimas: push_back std::vector vs Vector\n";
+        std::cout << "  10 - V3.0 tyrimas: atminties perskirstymai (100M elementu)\n";
+        std::cout << "  11 - V3.0 tyrimas: Studentu programa std::vector vs Vector\n";
+        std::cout << "  12 - Baigti darba\n";
         std::cout << "Pasirinkimas: ";
 
-        if ( !skaitytiSveika( meniu, 1, 9 ) )
+        if ( !skaitytiSveika( meniu, 1, 12 ) )
         {
             std::cout << "Neteisinga reiksme.\n";
             continue;
@@ -149,6 +152,24 @@ int main( )
 
             case 9:
             {
+                tyrimasVectorPushBack( );
+                break;
+            }
+
+            case 10:
+            {
+                tyrimasVectorReallocations( );
+                break;
+            }
+
+            case 11:
+            {
+                tyrimasVectorStudentai( mediana );
+                break;
+            }
+
+            case 12:
+            {
                 std::cout << "Programa baigta.\n";
                 break;
             }
@@ -167,7 +188,7 @@ int main( )
             std::cerr << "Klaida: " << e.what( ) << "\n";
         }
 
-    } while ( meniu != 9 );
+    } while ( meniu != 12 );
 
     return 0;
 }
