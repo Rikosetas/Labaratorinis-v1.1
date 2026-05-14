@@ -633,7 +633,27 @@ copy refman.pdf ..\dokumentacija.pdf
 
 ---
 
-## Vertinimo kriteriju mapping (v2.0)
+## v3.0 pakeitimai
+
+### Vector<T> klase
+
+Versijoje v3.0 sukurta sablono klase `Vector<T>` (failas [`ConsoleApplication1/vector_stl.h`](ConsoleApplication1/vector_stl.h)), kuri pilnai atkartoja `std::vector` funkcionaluma. Klase realizuoja > 80% standartiniu `std::vector` metodu:
+
+| Kategorija | Metodai |
+|------------|---------|
+| Konstruktoriai | `Vector()`, `Vector(size_t, const T&)`, `Vector(initializer_list)`, kopijavimo, perkelimo |
+| Destruktorius | `~Vector()` |
+| Priskyrimas | `operator=` (kopijavimo, perkelimo) |
+| Elementu prieiga | `operator[]`, `at()`, `front()`, `back()`, `data()` |
+| Iteratoriai | `begin()`, `end()`, `cbegin()`, `cend()` |
+| Capacity | `empty()`, `size()`, `capacity()`, `max_size()`, `reserve()`, `shrink_to_fit()` |
+| Modifikatoriai | `clear()`, `insert()`, `erase()`, `push_back()`, `pop_back()`, `emplace()`, `emplace_back()`, `resize()`, `swap()` |
+| Lyginimas | `==`, `!=`, `<`, `<=`, `>`, `>=` |
+| **Papildoma** | `realloc_count()` — atminties perskirstymu skaitliukas |
+
+Pilnai realizuota **Rule of Five** taisykle: kopijavimo ctor, kopijavimo `operator=`, perkelimo ctor, perkelimo `operator=`, destruktorius.
+
+
 
 | Kriterijus | Balu | Igyvendinta |
 |------------|------|-------------|
