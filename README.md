@@ -653,6 +653,66 @@ Versijoje v3.0 sukurta sablono klase `Vector<T>` (failas [`ConsoleApplication1/v
 
 Pilnai realizuota **Rule of Five** taisykle: kopijavimo ctor, kopijavimo `operator=`, perkelimo ctor, perkelimo `operator=`, destruktorius.
 
+### Vector funkciju pavyzdziai (5 pasirinktos funkcijos)
+
+#### 1. `push_back()` ir `size()` / `capacity()`
+
+```cpp
+Vector<int> v;
+v.push_back(10);
+v.push_back(20);
+v.push_back(30);
+std::cout << v.size();      // 3
+std::cout << v.capacity();  // >= 3 (paprastai 4)
+```
+
+Identiskas elgesys kaip `std::vector::push_back` — jei `size == capacity`, atminties buferyje atliekamas perskirstymas (capacity dvigubinasi).
+
+#### 2. `at()` su ribu tikrinimu
+
+```cpp
+Vector<int> v = {1, 2, 3};
+std::cout << v.at(1);   // 2
+try {
+    v.at(10);            // meta std::out_of_range
+} catch (const std::out_of_range& e) {
+    std::cerr << e.what(); // "Vector::at index out of range"
+}
+```
+
+Skirtumas nuo `operator[]` — `at()` tikrina indekso ribas ir meta isimti, jei ribos pazeistos.
+
+#### 3. `insert()` — iterpia elementa pries pos
+
+```cpp
+Vector<int> v = {1, 2, 4, 5};
+v.insert(v.begin() + 2, 3);
+// v dabar: {1, 2, 3, 4, 5}
+```
+
+Visi elementai uz iterpimo vietos pastumiami i prieki vienu indeksu (panasiai kaip `std::vector::insert`).
+
+#### 4. `emplace_back()` — perfect forwarding konstravimas vietoje
+
+```cpp
+Vector<std::string> v;
+v.emplace_back("Pirmas");      // "Pirmas"
+v.emplace_back(5, 'x');        // "xxxxx" (std::string konstruktorius su 5 'x')
+// Skirtumas nuo push_back: nera laikinos kopijos, objektas konstrukuojamas vietoje
+```
+
+Naudoja variadic template + `std::forward` perfect forwarding.
+
+#### 5. `resize()` — pakeicia dydi (su default reiksme)
+
+```cpp
+Vector<int> v = {1, 2, 3};
+v.resize(5, 99);  // {1, 2, 3, 99, 99}
+v.resize(2);      // {1, 2}  (paskutiniai 2 elementai numesti)
+```
+
+Padidina arba sumazina dydi, jei reikia padidinti — naujus elementus uzpildo `value` reiksme.
+
 
 
 | Kriterijus | Balu | Igyvendinta |
