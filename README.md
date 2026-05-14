@@ -633,6 +633,16 @@ make.bat
 copy refman.pdf ..\dokumentacija.pdf
 ```
 
+### V3.0 tyrimu paleidimas
+
+Pasileidus `programa.exe`, meniu pasirenkama:
+
+- **9** - Push_back greitis (uzpildyti tuscia konteineri 10K-100M elementu, std::vector vs Vector lyginimas)
+- **10** - Atminties perskirstymai (100M elementu — kiek kartu konteineris auga)
+- **11** - Pilna studentu programa (skaitymas + rusiavimas + skaidymas, 1K-10M studentu, std::vector vs Vector)
+
+Galutinio balo skaiciavimas (vidurkis / mediana) klausiamas programos pradzioje — itakoja tik 11 punktas (apima realu programos darba).
+
 ---
 
 ## v3.0 pakeitimai
