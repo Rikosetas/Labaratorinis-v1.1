@@ -10,14 +10,14 @@ endif()
 
 if(MSVC)
     add_compile_options(/O2 /EHsc)
+    add_compile_definitions(_CRT_SECURE_NO_WARNINGS _CRT_DECLARE_NONSTDC_NAMES=1)
 else()
     add_compile_options(-O2)
 endif()
 
-
 add_executable(programa
     ConsoleApplication1/main.cpp
-    ConsoleApplication1/io.cpp
+    ConsoleApplication1/studentu_io.cpp
     ConsoleApplication1/skaiciavimas.cpp
     ConsoleApplication1/zmogus.cpp
     ConsoleApplication1/studentas.cpp
@@ -31,7 +31,7 @@ include(FetchContent)
 FetchContent_Declare(
     googletest
     GIT_REPOSITORY https://github.com/google/googletest.git
-    GIT_TAG        v1.14.0
+    GIT_TAG        release-1.12.1
 )
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)

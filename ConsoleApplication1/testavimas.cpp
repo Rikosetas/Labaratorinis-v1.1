@@ -2,7 +2,7 @@
 #include "skaiciavimas.h"
 #include "studentas_utils.h"
 #include "exceptions.h"
-#include "io.h"
+#include "studentu_io.h"
 
 #include <iostream>
 #include <fstream>

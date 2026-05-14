@@ -21,7 +21,7 @@
     <ClCompile Include="skaiciavimas.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="io.cpp">
+    <ClCompile Include="studentu_io.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="zmogus.cpp">
@@ -50,7 +50,7 @@
     <ClInclude Include="skaiciavimas.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="io.h">
+    <ClInclude Include="studentu_io.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="studentas_utils.h">

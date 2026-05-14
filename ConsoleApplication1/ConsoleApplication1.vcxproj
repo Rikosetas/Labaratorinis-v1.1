@@ -129,7 +129,7 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="skaiciavimas.cpp" />
-    <ClCompile Include="io.cpp" />
+    <ClCompile Include="studentu_io.cpp" />
     <ClCompile Include="zmogus.cpp" />
     <ClCompile Include="studentas.cpp" />
     <ClCompile Include="studentas_utils.cpp" />
@@ -137,7 +137,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="exceptions.h" />
-    <ClInclude Include="io.h" />
+    <ClInclude Include="studentu_io.h" />
     <ClInclude Include="skaiciavimas.h" />
     <ClInclude Include="zmogus.h" />
     <ClInclude Include="studentas.h" />
