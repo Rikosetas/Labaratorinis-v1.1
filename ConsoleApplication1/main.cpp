@@ -11,6 +11,11 @@ int main( )
 {
     std::srand( static_cast<unsigned>( std::time( nullptr ) ) );
 
+    std::cout << "================================================================\n";
+    std::cout << "  Studentu rezultatu valdymo sistema  -  v3.0\n";
+    std::cout << "  (Vector<T> sablono klase + std::vector spartos lyginimas)\n";
+    std::cout << "================================================================\n\n";
+
     int skaiciavimas = { };
     std::cout << "Galutinio balo skaiciavimas:\n  1 - Vidurkis\n  2 - Mediana\nPasirinkimas: ";
 
