@@ -1,4 +1,4 @@
-# Laboratorinis darbas v1.5 - Studentu rezultatu valdymo sistema
+# Laboratorinis darbas v2.0 - Studentu rezultatu valdymo sistema
 
 ## Aprasymas
 
@@ -25,7 +25,8 @@ Galutinis = 0.4 * (vidurkis arba mediana namu darbu) + 0.6 * egzamino balas
 | v1.0 | Triju konteineriu palaikymas (vector, list, deque), 3 skaidymo strategijos, issamios spartos analizes, CMake palaikymas |
 | v1.1 | Konteineriu tyrimai, spartos palyginimas, kodo struktura optimizuota |
 | v1.2 | Rule of Five Studentas klasei, perdengtų I/O operatoriai (operator<<, operator>>), rankiniai testai |
-| **v1.5** | **Abstrakti bazine klase Zmogus, Studentas isvestine is Zmogus, paveldejimas, visi v1.2 testai patikrinti** |
+| v1.5 | Abstrakti bazine klase Zmogus, Studentas isvestine is Zmogus, paveldejimas, visi v1.2 testai patikrinti |
+| **v2.0** | **Doxygen dokumentacija (HTML + LaTeX + PDF), GoogleTest unit testai (Rule of Five + I/O operatoriai), `io.h` -> `studentu_io.h` pervadinimas** |
 
 ---
 
@@ -473,20 +474,28 @@ Naudojamas `std::stable_partition` algoritmas, kuris vienu perejimu perkelia vis
 
 ```
 Labaratorinis-v0.1/
-├── CMakeLists.txt                     - CMake kompiliavimo failas
-├── README.md                          - Dokumentacija
-├── .gitignore                         - Git ignoruojami failai
-├── ConsoleApplication1.sln            - Visual Studio sprendimas
-└── ConsoleApplication1/
-    ├── main.cpp                       - Pagrindine programa su meniu (9 punktai)
-    ├── io.cpp / io.h                  - Ivedimo/isvedimo funkcijos
-    ├── skaiciavimas.cpp / .h          - Balu skaiciavimo funkcijos
-    ├── zmogus.h / zmogus.cpp          - Abstrakti bazine klase Zmogus
-    ├── studentas.h / studentas.cpp    - Isvestine klase Studentas (Rule of Five + operator<<, >>)
-    ├── studentas_utils.cpp / .h       - Studentu pagalbines funkcijos
-    ├── testavimas.cpp / .h            - Tyrimai + testuotiKlase() rankinis testas
-    ├── exceptions.h                   - Klaidu klases (FailoKlaida, DuomenuKlaida)
-    └── ConsoleApplication1.vcxproj    - Visual Studio projekto failas
+├── CMakeLists.txt                       - CMake kompiliavimo failas (programa + unit_testai)
+├── Doxyfile                             - Doxygen konfiguracija
+├── README.md                            - Dokumentacija
+├── .gitignore                           - Git ignoruojami failai
+├── ConsoleApplication1.sln              - Visual Studio sprendimas
+├── ConsoleApplication1/
+│   ├── main.cpp                         - Pagrindine programa su meniu (9 punktai)
+│   ├── studentu_io.cpp / studentu_io.h  - Ivedimo/isvedimo funkcijos
+│   ├── skaiciavimas.cpp / .h            - Balu skaiciavimo funkcijos
+│   ├── zmogus.h / zmogus.cpp            - Abstrakti bazine klase Zmogus
+│   ├── studentas.h / studentas.cpp      - Isvestine klase Studentas (Rule of Five + operator<<, >>)
+│   ├── studentas_utils.cpp / .h         - Studentu pagalbines funkcijos
+│   ├── testavimas.cpp / .h              - Tyrimai + testuotiKlase() rankinis testas
+│   ├── exceptions.h                     - Klaidu klases (FailoKlaida, DuomenuKlaida)
+│   └── ConsoleApplication1.vcxproj      - Visual Studio projekto failas
+├── tests/
+│   └── test_studentas.cpp               - GoogleTest unit testai (Rule of Five + I/O)
+└── docs/
+    ├── dokumentacija.pdf                - Sukompiliuota Doxygen PDF dokumentacija
+    ├── html/                            - HTML dokumentacija (atidaryti index.html)
+    ├── latex/                           - LaTeX dokumentacija (TeX failai)
+    └── screenshots/                     - Testu paleidimo nuotraukos
 ```
 
 ---
@@ -500,3 +509,138 @@ Labaratorinis-v0.1/
 5. **3 strategija:** Universaliai efektyviausias metodas — `std::stable_partition` uztikrina O(n) sudetinguma visiems konteineriams. Su vector pasiektas **740x pagreitejimas** palyginus su 2 strategija.
 6. **Geriausia kombinacija:** `std::vector` + 3 strategija — greiciausias rusiavimas ir efektyvus skaidymas.
 7. **Release** konfiguracija butina korektiskim rezultatams — Debug rezimas gali buti 10-100x leciau.
+
+---
+
+## v2.0 pakeitimai
+
+### Doxygen dokumentacija
+
+Visos klases ir pagrindinai metodai apraseti naudojant Doxygen komentarus (`@brief`, `@param`, `@return`). Sugeneruota:
+
+- **HTML formatas:** `docs/html/index.html` — interaktyvi narsymui dokumentacija su klasiu diagramomis
+- **LaTeX (TeX) formatas:** `docs/latex/` — `.tex` failai kompiliavimui per LaTeX
+- **PDF formatas:** `docs/dokumentacija.pdf` — sukompiliuotas is LaTeX
+
+Dokumentacijos generavimo komanda:
+
+```bash
+doxygen Doxyfile
+```
+
+Po komandos atsiranda `docs/html/` ir `docs/latex/` katalogai. PDF kompiliuojamas is `docs/latex/` su `make.bat` (Windows + MiKTeX) arba `make` (Linux + TexLive).
+
+### Unit testai (GoogleTest)
+
+Realizuoti 7 unit testai naudojant **GoogleTest** framework'a (`release-1.12.1`), parsisiunciamas automatiskai per CMake `FetchContent`:
+
+| Testas | Ka tikrina |
+|--------|------------|
+| `Studentas.DefaultKonstruktorius` | Tuscias studentas: vardas == "", n == 0, egzaminas == 0, nd.empty() |
+| `Studentas.KopijavimoKonstruktorius` | Studentas s2(s1) — kopija atskira nuo originalo (gilus kopijavimas) |
+| `Studentas.KopijavimoPriskyrimas` | s2 = s1 — priskyrimas, savipriskyrimas saugus |
+| `Studentas.PerkelimoKonstruktorius` | Studentas s2(std::move(s1)) — saltinis tampa tuscias (n == 0, egzaminas == 0) |
+| `Studentas.PerkelimoPriskyrimas` | s2 = std::move(s1) — perkelimas, saviperkelimas saugus |
+| `Studentas.OperatorIsvedimas` | operator<< rezultatas = "Jonas Jonaitis 3 8 9 7 10" |
+| `Studentas.OperatorIvedimas` | operator>> teisingai nuskaito visus laukus |
+
+**Visi 5 Rule of Five metodai** (privalomi pagal uzduoti) yra patikrinti: default ctor, kopijavimo ctor, kopijavimo `operator=`, perkelimo ctor, perkelimo `operator=`. Papildomai testuojami `operator<<` ir `operator>>`.
+
+Testu paleidimas:
+
+```bash
+ctest --test-dir build -C Release --output-on-failure
+```
+
+Tikiesi pamatyti:
+
+```
+1/7 Test #1: Studentas.DefaultKonstruktorius ......   Passed
+2/7 Test #2: Studentas.KopijavimoKonstruktorius ...   Passed
+3/7 Test #3: Studentas.KopijavimoPriskyrimas ......   Passed
+4/7 Test #4: Studentas.PerkelimoKonstruktorius ....   Passed
+5/7 Test #5: Studentas.PerkelimoPriskyrimas .......   Passed
+6/7 Test #6: Studentas.OperatorIsvedimas ..........   Passed
+7/7 Test #7: Studentas.OperatorIvedimas ...........   Passed
+
+100% tests passed, 0 tests failed out of 7
+```
+
+### Failu pervadinimas: io.h -> studentu_io.h
+
+Atrasta, kad lokalus `ConsoleApplication1/io.h` failas konfliktavo su Windows SDK sisteminiu `<io.h>` (`_isatty`, `read`, `write`, `close` deklaravimais). Tai sukele GoogleTest kompiliavimo klaidas. Sprendimas — pervadinti i `studentu_io.h` / `studentu_io.cpp`.
+
+---
+
+## Diegimo ir paleidimo instrukcija
+
+### Reikalavimai
+
+| Komponentas | Versija |
+|-------------|---------|
+| CMake | 3.14+ |
+| C++ kompiliatorius | MSVC 19.42+ (Visual Studio 2022) arba GCC 9+ arba Clang 12+ |
+| Git | bet kokia versija (reikalinga `FetchContent` testams) |
+| Doxygen (nebūtina) | 1.9+ — dokumentacijos regeneravimui |
+| LaTeX (nebūtina) | MiKTeX / TexLive — PDF kompiliavimui |
+
+### Kompiliavimas
+
+```bash
+git clone https://github.com/Rikosetas/Labaratorinis-v1.1.git
+cd Labaratorinis-v1.1
+git checkout v2.0
+
+cmake -S . -B build
+cmake --build build --config Release
+```
+
+Susikompiliuoja **du** vykdomieji failai:
+
+- `build/Release/programa.exe` — pagrindine programa su meniu
+- `build/Release/unit_testai.exe` — GoogleTest unit testai
+
+### Programos paleidimas
+
+```bash
+build\Release\programa.exe
+```
+
+Programa pateikia meniu su 9 punktais (rankinis ivedimas, generavimas, tyrimai, testavimas, ir t.t.).
+
+### Testu paleidimas
+
+```bash
+ctest --test-dir build -C Release --output-on-failure
+```
+
+Arba tiesiogiai:
+
+```bash
+build\Release\unit_testai.exe
+```
+
+### Dokumentacijos generavimas
+
+```bash
+doxygen Doxyfile
+
+cd docs\latex
+make.bat
+copy refman.pdf ..\dokumentacija.pdf
+```
+
+---
+
+## Vertinimo kriteriju mapping (v2.0)
+
+| Kriterijus | Balu | Igyvendinta |
+|------------|------|-------------|
+| Pilnai veikianti programa v2.0 | 2 b. | Visi 7 unit testai praeina, programa veikia |
+| v2.0 release pateiktas laiku | 1 b. | Sukurtas GitHub release v2.0 |
+| v2.0 saka sinchronizuota >= 5 kartu | 1 b. | 8+ commit'ai ant v2.0 sakos |
+| Unit testai su sava klase (Rule of Five privaloma) | 3 b. | 7 testai, visi 5 Rule of Five metodai patikrinti |
+| Doxygen HTML + TEX + PDF dokumentacija | 2 b. | `docs/html/`, `docs/latex/`, `docs/dokumentacija.pdf` |
+| README su lentelemis, nuotraukomis, svari repo | 1 b. | Sis README.md, IDE siuksles ignoruojamos per .gitignore |
+| **Is viso** | **10 b.** | |
+
