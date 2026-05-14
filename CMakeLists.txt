@@ -40,6 +40,7 @@ enable_testing()
 
 add_executable(unit_testai
     tests/test_studentas.cpp
+    tests/test_vector.cpp
     ConsoleApplication1/zmogus.cpp
     ConsoleApplication1/studentas.cpp
 )
