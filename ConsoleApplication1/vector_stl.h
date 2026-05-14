@@ -21,11 +21,21 @@
   * keitimo metodus (push_back, pop_back, insert, erase, emplace, emplace_back, swap),
   * iteratorius (begin, end, cbegin, cend) ir lyginimo operatorius.
   *
-  * Papildomai realizuotas reallocation skaitliukas - @ref realloc_count() grazina
-  * kiek kartu vidiniu buferiu perskirstymas (capacity perskaiciavimas) buvo atliktas.
-  *
-  * @tparam T elemento tipas.
-  */
+ * Papildomai realizuotas reallocation skaitliukas - @ref realloc_count() grazina
+ * kiek kartu vidiniu buferiu perskirstymas (capacity perskaiciavimas) buvo atliktas.
+ *
+ * Pavyzdys:
+ * @code
+ * Vector<int> v;
+ * v.push_back(1);
+ * v.push_back(2);
+ * v.push_back(3);
+ * for (int x : v) std::cout << x << " "; // 1 2 3
+ * std::cout << v.realloc_count();         // 3 (1->2, 2->4)
+ * @endcode
+ *
+ * @tparam T elemento tipas.
+ */
 template<typename T>
 class Vector {
 private:
