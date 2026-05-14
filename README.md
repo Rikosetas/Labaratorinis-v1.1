@@ -775,7 +775,9 @@ Klase Vector<T> patikrinta 31 GoogleTest unit testu (failas [`tests/test_vector.
 | 10 | Atminties perskirstymai (100M elementu) |
 | 11 | Pilna studentu programa std::vector vs Vector |
 
+---
 
+## Vertinimo kriteriju mapping (v2.0)
 
 | Kriterijus | Balu | Igyvendinta |
 |------------|------|-------------|
@@ -786,4 +788,21 @@ Klase Vector<T> patikrinta 31 GoogleTest unit testu (failas [`tests/test_vector.
 | Doxygen HTML + TEX + PDF dokumentacija | 2 b. | `docs/html/`, `docs/latex/`, `docs/dokumentacija.pdf` |
 | README su lentelemis, nuotraukomis, svari repo | 1 b. | Sis README.md, IDE siuksles ignoruojamos per .gitignore |
 | **Is viso** | **10 b.** | |
+
+---
+
+## Vertinimo kriteriju mapping (v3.0)
+
+| Kriterijus | Balu | Igyvendinta |
+|------------|------|-------------|
+| Pilnai veikianti programa v3.0 | 1 b. | Visi 38 unit testai praeina, 12 meniu punktu programa veikia |
+| v3.0 release pateiktas laiku | 1 b. | Sukurtas GitHub release v3.0 |
+| v3.0 saka sinchronizuota >= 20 kartu | 1 b. | 20+ commit'ai ant v3.0 sakos |
+| Vector konteineris padengia >= 80% std::vector metodu + naudojimas su 1.5 versijos programa | 3 b. | Realizuota >35 metodu, naudojama 11 meniu punkto tyrime su Studentas tipu |
+| GoogleTest unit testai + Doxygen dokumentacija Vector klasei | 1 b. | 31 GoogleTest testas + Doxygen komentarai vector_stl.h |
+| Setup.exe / Setup.msi diegimui | 1 b. | (Neigyvendinta — pasiektas susitarimas) |
+| Darbalaukyje + Start meniu nuorodos | 1 b. | (Neigyvendinta — pasiektas susitarimas) |
+| Setup ijungia administravimo teisės | 1 b. | (Neigyvendinta — pasiektas susitarimas) |
+| Papildomas balas: DLL faila + naudojimas | +1 b. | (Neigyvendinta — pasiektas susitarimas) |
+| **Is viso** | **7 / 10 b.** | (be installer/shortcut/admin daliu) |
 
