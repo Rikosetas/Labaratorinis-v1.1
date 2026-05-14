@@ -233,14 +233,22 @@ Private Attributes</h2></td></tr>
 class Vector&lt; T &gt;</div><p>Dinaminis masyvas, atkartojantis std::vector elgesi. </p>
 <p>Klase realizuoja: Rule of Five (kopijavimo / perkelimo ctor + operator=), elementu prieigos metodus (operator[], at, front, back, data), dydzio valdyma (size, capacity, empty, reserve, resize, shrink_to_fit, clear), keitimo metodus (push_back, pop_back, insert, erase, emplace, emplace_back, swap), iteratorius (begin, end, cbegin, cend) ir lyginimo operatorius.</p>
 <p>Papildomai realizuotas reallocation skaitliukas - <a class="el" href="#a6bc79fc6de868cab9490ff7f1b2fecde" title="realloc_count()">realloc_count()</a> grazina kiek kartu vidiniu buferiu perskirstymas (capacity perskaiciavimas) buvo atliktas.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
+<p>Pavyzdys: </p><div class="fragment"><div class="line"><a class="code hl_function" href="#a39d6069675db4ecfc1ab81d440da759a">Vector&lt;int&gt;</a> v;</div>
+<div class="line">v.<a class="code hl_function" href="#a4415960a83615855ec32f8169f641786">push_back</a>(1);</div>
+<div class="line">v.<a class="code hl_function" href="#a4415960a83615855ec32f8169f641786">push_back</a>(2);</div>
+<div class="line">v.<a class="code hl_function" href="#a4415960a83615855ec32f8169f641786">push_back</a>(3);</div>
+<div class="line"><span class="keywordflow">for</span> (<span class="keywordtype">int</span> x : v) std::cout &lt;&lt; x &lt;&lt; <span class="stringliteral">&quot; &quot;</span>; <span class="comment">// 1 2 3</span></div>
+<div class="line">std::cout &lt;&lt; v.realloc_count();         <span class="comment">// 3 (1-&gt;2, 2-&gt;4)</span></div>
+<div class="ttc" id="aclass_vector_html_a39d6069675db4ecfc1ab81d440da759a"><div class="ttname"><a href="#a39d6069675db4ecfc1ab81d440da759a">Vector::Vector</a></div><div class="ttdeci">Vector()</div><div class="ttdoc">Default konstruktorius - tuscias vektorius.</div><div class="ttdef"><b>Definition</b> <a href="vector__stl_8h_source.html#l00053">vector_stl.h:53</a></div></div>
+<div class="ttc" id="aclass_vector_html_a4415960a83615855ec32f8169f641786"><div class="ttname"><a href="#a4415960a83615855ec32f8169f641786">Vector::push_back</a></div><div class="ttdeci">void push_back(const T &amp;value)</div><div class="ttdoc">Prideda elementa i pabaiga (kopija).</div><div class="ttdef"><b>Definition</b> <a href="vector__stl_8h_source.html#l00292">vector_stl.h:292</a></div></div>
+</div><!-- fragment --><dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>elemento tipas. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00030">30</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00040">40</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
 </div><a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
 <a id="ab5c7c5bd8876148f2a11fdce1c221776" name="ab5c7c5bd8876148f2a11fdce1c221776"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab5c7c5bd8876148f2a11fdce1c221776">&#9670;&#160;</a></span>const_iterator</h2>
@@ -256,7 +264,7 @@ template&lt;typename T&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00039">39</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00049">49</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
 
 </div>
 </div>
@@ -274,7 +282,7 @@ template&lt;typename T&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00038">38</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00048">48</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
 
 </div>
 </div>
@@ -306,7 +314,7 @@ template&lt;typename T&gt; </div>
 
 <p>Default konstruktorius - tuscias vektorius. </p>
 
-<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00043">43</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00053">53</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
 
 </div>
 </div>
@@ -348,7 +356,7 @@ template&lt;typename T&gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00050">50</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00060">60</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
 
 </div>
 </div>
@@ -379,7 +387,7 @@ template&lt;typename T&gt; </div>
 
 <p>Konstruktorius is initializer_list (<a class="el" href="class_vector.html" title="Dinaminis masyvas, atkartojantis std::vector elgesi.">Vector&lt;int&gt;</a> v = {1,2,3}). </p>
 
-<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00064">64</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00074">74</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
 
 </div>
 </div>
@@ -410,7 +418,7 @@ template&lt;typename T&gt; </div>
 
 <p>Destruktorius. </p>
 
-<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00073">73</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00083">83</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
 
 </div>
 </div>
@@ -441,7 +449,7 @@ template&lt;typename T&gt; </div>
 
 <p>Kopijavimo konstruktorius. </p>
 
-<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00076">76</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00086">86</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
 
 </div>
 </div>
@@ -472,7 +480,7 @@ template&lt;typename T&gt; </div>
 
 <p>Perkelimo konstruktorius. </p>
 
-<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00105">105</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00115">115</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
 
 </div>
 </div>
@@ -504,7 +512,7 @@ template&lt;typename T&gt; </div>
 
 <p>Elemento prieiga su ribu tikrinimu (gali mesti std::out_of_range). </p>
 
-<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00191">191</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00201">201</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
 
 </div>
 </div>
@@ -533,7 +541,7 @@ template&lt;typename T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00199">199</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00209">209</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
 
 </div>
 </div>
@@ -562,7 +570,7 @@ template&lt;typename T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00210">210</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00220">220</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
 
 </div>
 </div>
@@ -591,7 +599,7 @@ template&lt;typename T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00211">211</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00221">221</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
 
 </div>
 </div>
@@ -620,7 +628,7 @@ template&lt;typename T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00271">271</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00281">281</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
 
 </div>
 </div>
@@ -649,7 +657,7 @@ template&lt;typename T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00274">274</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00284">284</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
 
 </div>
 </div>
@@ -680,7 +688,7 @@ template&lt;typename T&gt; </div>
 
 <p>Grazina capacity (kiek elementu telpa be reallocation). </p>
 
-<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00223">223</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00233">233</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
 
 </div>
 </div>
@@ -709,7 +717,7 @@ template&lt;typename T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00277">277</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00287">287</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
 
 </div>
 </div>
@@ -738,7 +746,7 @@ template&lt;typename T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00278">278</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00288">288</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
 
 </div>
 </div>
@@ -769,7 +777,7 @@ template&lt;typename T&gt; </div>
 
 <p>Istusina vektoriu (size_ = 0, capacity nepasikeicia). </p>
 
-<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00308">308</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00318">318</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
 
 </div>
 </div>
@@ -798,7 +806,7 @@ template&lt;typename T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00213">213</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00223">223</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
 
 </div>
 </div>
@@ -827,7 +835,7 @@ template&lt;typename T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00214">214</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00224">224</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
 
 </div>
 </div>
@@ -864,7 +872,7 @@ template&lt;typename ... Args&gt; </div>
 
 <p>Iterpia konstrukuojant elementa pries pos pozicija (perfect forwarding). </p>
 
-<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00352">352</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00362">362</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
 
 </div>
 </div>
@@ -897,7 +905,7 @@ template&lt;typename ... Args&gt; </div>
 
 <p>Konstrukuoja elementa pabaigoje (perfect forwarding). </p>
 
-<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00371">371</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00381">381</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
 
 </div>
 </div>
@@ -928,7 +936,7 @@ template&lt;typename T&gt; </div>
 
 <p>Tikrina ar vektorius tuscias. </p>
 
-<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00217">217</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00227">227</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
 
 </div>
 </div>
@@ -957,7 +965,7 @@ template&lt;typename T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00272">272</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00282">282</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
 
 </div>
 </div>
@@ -986,7 +994,7 @@ template&lt;typename T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00275">275</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00285">285</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
 
 </div>
 </div>
@@ -1018,7 +1026,7 @@ template&lt;typename T&gt; </div>
 <p>Pasalina elementa pos pozicijoje. </p>
 <dl class="section return"><dt>Returns</dt><dd>iteratorius i kita elementa po pasalintojo. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00335">335</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00345">345</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
 
 </div>
 </div>
@@ -1047,7 +1055,7 @@ template&lt;typename T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00207">207</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00217">217</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
 
 </div>
 </div>
@@ -1076,7 +1084,7 @@ template&lt;typename T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00208">208</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00218">218</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
 
 </div>
 </div>
@@ -1112,7 +1120,7 @@ template&lt;typename T&gt; </div>
 <p>Iterpia elementa pries pos pozicija. </p>
 <dl class="section return"><dt>Returns</dt><dd>iteratorius i naujai iterpta elementa. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00314">314</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00324">324</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
 
 </div>
 </div>
@@ -1149,7 +1157,7 @@ template&lt;typename T&gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00168">168</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00178">178</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
 
 </div>
 </div>
@@ -1180,7 +1188,7 @@ template&lt;typename T&gt; </div>
 
 <p>Maksimalus galimas elementu skaicius. </p>
 
-<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00226">226</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00236">236</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
 
 </div>
 </div>
@@ -1209,7 +1217,7 @@ template&lt;typename T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00158">158</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00168">168</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
 
 </div>
 </div>
@@ -1240,7 +1248,7 @@ template&lt;typename T&gt; </div>
 
 <p>Lyginimo operatorius &lt; (leksikografinis). </p>
 
-<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00148">148</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00158">158</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
 
 </div>
 </div>
@@ -1269,7 +1277,7 @@ template&lt;typename T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00159">159</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00169">169</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
 
 </div>
 </div>
@@ -1300,7 +1308,7 @@ template&lt;typename T&gt; </div>
 
 <p>Kopijavimo priskyrimas. </p>
 
-<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00088">88</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00098">98</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
 
 </div>
 </div>
@@ -1331,7 +1339,7 @@ template&lt;typename T&gt; </div>
 
 <p>Perkelimo priskyrimas. </p>
 
-<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00114">114</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00124">124</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
 
 </div>
 </div>
@@ -1362,7 +1370,7 @@ template&lt;typename T&gt; </div>
 
 <p>Lyginimo operatorius == (elementu palyginimas). </p>
 
-<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00135">135</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00145">145</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
 
 </div>
 </div>
@@ -1391,7 +1399,7 @@ template&lt;typename T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00160">160</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00170">170</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
 
 </div>
 </div>
@@ -1420,7 +1428,7 @@ template&lt;typename T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00161">161</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00171">171</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
 
 </div>
 </div>
@@ -1451,7 +1459,7 @@ template&lt;typename T&gt; </div>
 
 <p>Elemento prieiga be ribu tikrinimo. </p>
 
-<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00187">187</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00197">197</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
 
 </div>
 </div>
@@ -1480,7 +1488,7 @@ template&lt;typename T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00188">188</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00198">198</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
 
 </div>
 </div>
@@ -1511,7 +1519,7 @@ template&lt;typename T&gt; </div>
 
 <p>Pasalina paskutini elementa. </p>
 
-<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00299">299</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00309">309</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
 
 </div>
 </div>
@@ -1542,7 +1550,7 @@ template&lt;typename T&gt; </div>
 
 <p>Prideda elementa i pabaiga (kopija). </p>
 
-<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00282">282</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00292">292</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
 
 </div>
 </div>
@@ -1573,7 +1581,7 @@ template&lt;typename T&gt; </div>
 
 <p>Prideda elementa i pabaiga (perkelimas). </p>
 
-<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00291">291</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00301">301</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
 
 </div>
 </div>
@@ -1604,7 +1612,7 @@ template&lt;typename T&gt; </div>
 
 <p>Grazina kiek kartu ivyko vidinis perskirstymas. </p>
 
-<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00229">229</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00239">239</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
 
 </div>
 </div>
@@ -1641,7 +1649,7 @@ template&lt;typename T&gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00235">235</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00245">245</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
 
 </div>
 </div>
@@ -1676,7 +1684,7 @@ template&lt;typename T&gt; </div>
 
 <p>Pakeicia dydi i count, ipildo value, jei reikia padidinti. </p>
 
-<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00383">383</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00393">393</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
 
 </div>
 </div>
@@ -1707,7 +1715,7 @@ template&lt;typename T&gt; </div>
 
 <p>Sumazina capacity iki size (jei reikia). </p>
 
-<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00244">244</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00254">254</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
 
 </div>
 </div>
@@ -1738,7 +1746,7 @@ template&lt;typename T&gt; </div>
 
 <p>Grazina elementu skaiciu. </p>
 
-<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00220">220</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00230">230</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
 
 </div>
 </div>
@@ -1769,7 +1777,7 @@ template&lt;typename T&gt; </div>
 
 <p>Sukeicia dvieju vektoriu turini. </p>
 
-<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00403">403</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00413">413</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
 
 </div>
 </div>
@@ -1796,7 +1804,7 @@ template&lt;typename T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00034">34</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00044">44</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
 
 </div>
 </div>
@@ -1822,7 +1830,7 @@ template&lt;typename T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00032">32</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00042">42</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
 
 </div>
 </div>
@@ -1848,7 +1856,7 @@ template&lt;typename T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00035">35</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00045">45</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
 
 </div>
 </div>
@@ -1874,7 +1882,7 @@ template&lt;typename T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00033">33</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector__stl_8h_source.html#l00043">43</a> of file <a class="el" href="vector__stl_8h_source.html">vector_stl.h</a>.</p>
 
 </div>
 </div>

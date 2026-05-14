@@ -144,6 +144,18 @@ Klase realizuoja:\+ Rule of Five (kopijavimo /\+ perkelimo ctor + operator=), el
 
 Papildomai realizuotas reallocation skaitliukas -\/ \doxylink{class_vector_a6bc79fc6de868cab9490ff7f1b2fecde}{realloc\+\_\+count()} grazina kiek kartu vidiniu buferiu perskirstymas (capacity perskaiciavimas) buvo atliktas.
 
+Pavyzdys:\+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\doxymbox{\hyperlink{class_vector_a39d6069675db4ecfc1ab81d440da759a}{Vector<int>}}\ v;}
+\DoxyCodeLine{v.\doxymbox{\hyperlink{class_vector_a4415960a83615855ec32f8169f641786}{push\_back}}(1);}
+\DoxyCodeLine{v.\doxymbox{\hyperlink{class_vector_a4415960a83615855ec32f8169f641786}{push\_back}}(2);}
+\DoxyCodeLine{v.\doxymbox{\hyperlink{class_vector_a4415960a83615855ec32f8169f641786}{push\_back}}(3);}
+\DoxyCodeLine{\textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ x\ :\ v)\ std::cout\ <<\ x\ <<\ \textcolor{stringliteral}{"{}\ "{}};\ \textcolor{comment}{//\ 1\ 2\ 3}}
+\DoxyCodeLine{std::cout\ <<\ v.realloc\_count();\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 3\ (1-\/>2,\ 2-\/>4)}}
+
+\end{DoxyCode}
+
+
 
 \begin{DoxyTemplParams}{Template Parameters}
 {\em T} & elemento tipas. \\
@@ -151,7 +163,7 @@ Papildomai realizuotas reallocation skaitliukas -\/ \doxylink{class_vector_a6bc7
 \end{DoxyTemplParams}
 
 
-Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00030}{30}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
+Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00040}{40}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
 
 
 
@@ -167,7 +179,7 @@ using \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+const\+\_\+iterato
 
 
 
-Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00039}{39}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
+Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00049}{49}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
 
 \Hypertarget{class_vector_ac0f3602bfd8099ecf53f9aeb3cb90528}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!iterator@{iterator}}
 \index{iterator@{iterator}!Vector$<$ T $>$@{Vector$<$ T $>$}}
@@ -178,7 +190,7 @@ using \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+iterator = T\texor
 
 
 
-Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00038}{38}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
+Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00048}{48}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
 
 
 
@@ -198,7 +210,7 @@ Default konstruktorius -\/ tuscias vektorius.
 
 
 
-Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00043}{43}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
+Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00053}{53}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
 
 \Hypertarget{class_vector_aaf794b5fdad51108797d35599fc4bae2}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!Vector@{Vector}}
 \index{Vector@{Vector}!Vector$<$ T $>$@{Vector$<$ T $>$}}
@@ -220,7 +232,7 @@ Konstruktorius su pradiniu dydziu.
 \end{DoxyParams}
 
 
-Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00050}{50}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
+Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00060}{60}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
 
 \Hypertarget{class_vector_a12f4ef4ad1278a19dd88da6696630821}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!Vector@{Vector}}
 \index{Vector@{Vector}!Vector$<$ T $>$@{Vector$<$ T $>$}}
@@ -235,7 +247,7 @@ Konstruktorius is initializer\+\_\+list (\doxylink{class_vector}{Vector$<$int$>$
 
 
 
-Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00064}{64}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
+Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00074}{74}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
 
 \Hypertarget{class_vector_afd524fac19e6d3d69db5198ffe2952b0}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!````~Vector@{\texorpdfstring{$\sim$}{\string~}Vector}}
 \index{````~Vector@{\texorpdfstring{$\sim$}{\string~}Vector}!Vector$<$ T $>$@{Vector$<$ T $>$}}
@@ -250,7 +262,7 @@ Destruktorius.
 
 
 
-Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00073}{73}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
+Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00083}{83}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
 
 \Hypertarget{class_vector_a940f94b7c4a1c15a65a1ab6e13859dfe}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!Vector@{Vector}}
 \index{Vector@{Vector}!Vector$<$ T $>$@{Vector$<$ T $>$}}
@@ -265,7 +277,7 @@ Kopijavimo konstruktorius.
 
 
 
-Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00076}{76}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
+Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00086}{86}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
 
 \Hypertarget{class_vector_a5ed9bb7852ccee071f8418d10182927f}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!Vector@{Vector}}
 \index{Vector@{Vector}!Vector$<$ T $>$@{Vector$<$ T $>$}}
@@ -280,7 +292,7 @@ Perkelimo konstruktorius.
 
 
 
-Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00105}{105}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
+Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00115}{115}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
 
 
 
@@ -300,7 +312,7 @@ Elemento prieiga su ribu tikrinimu (gali mesti std::\+out\+\_\+of\+\_\+range).
 
 
 
-Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00191}{191}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
+Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00201}{201}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
 
 \Hypertarget{class_vector_a9258e84ecd3d5311a4652518cf9281fe}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!at@{at}}
 \index{at@{at}!Vector$<$ T $>$@{Vector$<$ T $>$}}
@@ -311,7 +323,7 @@ const T \& \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+at (\begin{Do
 
 
 
-Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00199}{199}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
+Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00209}{209}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
 
 \Hypertarget{class_vector_a6decf0bdeb6849bfcc151b2c514f639f}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!back@{back}}
 \index{back@{back}!Vector$<$ T $>$@{Vector$<$ T $>$}}
@@ -322,7 +334,7 @@ T \& \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+back (\begin{DoxyPa
 
 
 
-Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00210}{210}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
+Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00220}{220}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
 
 \Hypertarget{class_vector_ae2094e298cbe0394557b9213942a31d1}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!back@{back}}
 \index{back@{back}!Vector$<$ T $>$@{Vector$<$ T $>$}}
@@ -333,7 +345,7 @@ const T \& \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+back (\begin{
 
 
 
-Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00211}{211}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
+Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00221}{221}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
 
 \Hypertarget{class_vector_a466e8c045ea10d62c28b689888e9fe5a}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!begin@{begin}}
 \index{begin@{begin}!Vector$<$ T $>$@{Vector$<$ T $>$}}
@@ -344,7 +356,7 @@ template$<$typename T$>$ \\
 
 
 
-Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00271}{271}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
+Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00281}{281}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
 
 \Hypertarget{class_vector_a514c5f6246f07f0012f1d00912838b19}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!begin@{begin}}
 \index{begin@{begin}!Vector$<$ T $>$@{Vector$<$ T $>$}}
@@ -355,7 +367,7 @@ template$<$typename T$>$ \\
 
 
 
-Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00274}{274}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
+Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00284}{284}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
 
 \Hypertarget{class_vector_a85c39fed5822d2a03a3250336039c933}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!capacity@{capacity}}
 \index{capacity@{capacity}!Vector$<$ T $>$@{Vector$<$ T $>$}}
@@ -370,7 +382,7 @@ Grazina capacity (kiek elementu telpa be reallocation).
 
 
 
-Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00223}{223}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
+Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00233}{233}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
 
 \Hypertarget{class_vector_afa15b0e58a9d29293941b3741a2ed1b5}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!cbegin@{cbegin}}
 \index{cbegin@{cbegin}!Vector$<$ T $>$@{Vector$<$ T $>$}}
@@ -381,7 +393,7 @@ template$<$typename T$>$ \\
 
 
 
-Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00277}{277}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
+Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00287}{287}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
 
 \Hypertarget{class_vector_aab84ab1d529efc8949fb1891fe259f48}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!cend@{cend}}
 \index{cend@{cend}!Vector$<$ T $>$@{Vector$<$ T $>$}}
@@ -392,7 +404,7 @@ template$<$typename T$>$ \\
 
 
 
-Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00278}{278}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
+Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00288}{288}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
 
 \Hypertarget{class_vector_a32ad98b135472b0ebc5d6cb3ae5d0085}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!clear@{clear}}
 \index{clear@{clear}!Vector$<$ T $>$@{Vector$<$ T $>$}}
@@ -407,7 +419,7 @@ Istusina vektoriu (size\+\_\+ = 0, capacity nepasikeicia).
 
 
 
-Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00308}{308}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
+Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00318}{318}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
 
 \Hypertarget{class_vector_a641a765cb13d9e9ff8f9bc4e5a375c9b}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!data@{data}}
 \index{data@{data}!Vector$<$ T $>$@{Vector$<$ T $>$}}
@@ -418,7 +430,7 @@ T \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>
 
 
 
-Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00213}{213}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
+Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00223}{223}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
 
 \Hypertarget{class_vector_adf2019fbfec16aeea3150a48e0c773ee}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!data@{data}}
 \index{data@{data}!Vector$<$ T $>$@{Vector$<$ T $>$}}
@@ -429,7 +441,7 @@ const T \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_vector}{Vector}}$<
 
 
 
-Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00214}{214}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
+Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00224}{224}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
 
 \Hypertarget{class_vector_a6e7596194e3dc0ddc289017df291e179}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!emplace@{emplace}}
 \index{emplace@{emplace}!Vector$<$ T $>$@{Vector$<$ T $>$}}
@@ -445,7 +457,7 @@ Iterpia konstrukuojant elementa pries pos pozicija (perfect forwarding).
 
 
 
-Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00352}{352}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
+Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00362}{362}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
 
 \Hypertarget{class_vector_ab9d0d8011ddfd2ff0d037f0c64dd94dd}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!emplace\_back@{emplace\_back}}
 \index{emplace\_back@{emplace\_back}!Vector$<$ T $>$@{Vector$<$ T $>$}}
@@ -461,7 +473,7 @@ Konstrukuoja elementa pabaigoje (perfect forwarding).
 
 
 
-Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00371}{371}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
+Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00381}{381}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
 
 \Hypertarget{class_vector_ad688a8a0dfbd07ea63d838058a436f79}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!empty@{empty}}
 \index{empty@{empty}!Vector$<$ T $>$@{Vector$<$ T $>$}}
@@ -476,7 +488,7 @@ Tikrina ar vektorius tuscias.
 
 
 
-Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00217}{217}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
+Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00227}{227}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
 
 \Hypertarget{class_vector_ae288fa619188bff101d5300b8aaf9a90}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!end@{end}}
 \index{end@{end}!Vector$<$ T $>$@{Vector$<$ T $>$}}
@@ -487,7 +499,7 @@ template$<$typename T$>$ \\
 
 
 
-Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00272}{272}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
+Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00282}{282}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
 
 \Hypertarget{class_vector_a3f5f39e8ec9f506664b259299e79c485}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!end@{end}}
 \index{end@{end}!Vector$<$ T $>$@{Vector$<$ T $>$}}
@@ -498,7 +510,7 @@ template$<$typename T$>$ \\
 
 
 
-Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00275}{275}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
+Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00285}{285}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
 
 \Hypertarget{class_vector_ada08ce2d41733da63bdeac9901d48a74}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!erase@{erase}}
 \index{erase@{erase}!Vector$<$ T $>$@{Vector$<$ T $>$}}
@@ -516,7 +528,7 @@ iteratorius i kita elementa po pasalintojo.
 \end{DoxyReturn}
 
 
-Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00335}{335}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
+Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00345}{345}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
 
 \Hypertarget{class_vector_a0061cc9127a9cbf541439121998a1fdd}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!front@{front}}
 \index{front@{front}!Vector$<$ T $>$@{Vector$<$ T $>$}}
@@ -527,7 +539,7 @@ T \& \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+front (\begin{DoxyP
 
 
 
-Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00207}{207}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
+Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00217}{217}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
 
 \Hypertarget{class_vector_ae891494a5654af2db2a00d162c50985a}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!front@{front}}
 \index{front@{front}!Vector$<$ T $>$@{Vector$<$ T $>$}}
@@ -538,7 +550,7 @@ const T \& \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+front (\begin
 
 
 
-Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00208}{208}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
+Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00218}{218}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
 
 \Hypertarget{class_vector_a543330cea78641b32eb35d37e3642b51}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!insert@{insert}}
 \index{insert@{insert}!Vector$<$ T $>$@{Vector$<$ T $>$}}
@@ -556,7 +568,7 @@ iteratorius i naujai iterpta elementa.
 \end{DoxyReturn}
 
 
-Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00314}{314}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
+Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00324}{324}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
 
 \Hypertarget{class_vector_a74bf43121c566975443205e7e9c824ea}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!internal\_grow@{internal\_grow}}
 \index{internal\_grow@{internal\_grow}!Vector$<$ T $>$@{Vector$<$ T $>$}}
@@ -576,7 +588,7 @@ Vidinis buferiu perskirstymas.
 \end{DoxyParams}
 
 
-Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00168}{168}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
+Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00178}{178}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
 
 \Hypertarget{class_vector_a442b72c70b33b62d49c99845385bba51}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!max\_size@{max\_size}}
 \index{max\_size@{max\_size}!Vector$<$ T $>$@{Vector$<$ T $>$}}
@@ -591,7 +603,7 @@ Maksimalus galimas elementu skaicius.
 
 
 
-Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00226}{226}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
+Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00236}{236}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
 
 \Hypertarget{class_vector_aeb226de8807a211671abc6864858bf6b}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!operator"!=@{operator"!=}}
 \index{operator"!=@{operator"!=}!Vector$<$ T $>$@{Vector$<$ T $>$}}
@@ -602,7 +614,7 @@ bool \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+operator!= (\begin{
 
 
 
-Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00158}{158}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
+Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00168}{168}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
 
 \Hypertarget{class_vector_abd4fc7036719f7a2d6603d314382b89d}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!operator$<$@{operator$<$}}
 \index{operator$<$@{operator$<$}!Vector$<$ T $>$@{Vector$<$ T $>$}}
@@ -617,7 +629,7 @@ Lyginimo operatorius \texorpdfstring{$<$}{<} (leksikografinis).
 
 
 
-Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00148}{148}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
+Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00158}{158}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
 
 \Hypertarget{class_vector_aacfd8d2dffb899bc87935b062a5693b4}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!operator$<$=@{operator$<$=}}
 \index{operator$<$=@{operator$<$=}!Vector$<$ T $>$@{Vector$<$ T $>$}}
@@ -628,7 +640,7 @@ bool \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+operator$<$= (\begi
 
 
 
-Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00159}{159}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
+Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00169}{169}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
 
 \Hypertarget{class_vector_a2fe37b54a47d28015829196cb5abec05}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!operator=@{operator=}}
 \index{operator=@{operator=}!Vector$<$ T $>$@{Vector$<$ T $>$}}
@@ -643,7 +655,7 @@ Kopijavimo priskyrimas.
 
 
 
-Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00088}{88}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
+Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00098}{98}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
 
 \Hypertarget{class_vector_ac7a5d1c7410208d7ce8f13497e31dd87}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!operator=@{operator=}}
 \index{operator=@{operator=}!Vector$<$ T $>$@{Vector$<$ T $>$}}
@@ -658,7 +670,7 @@ Perkelimo priskyrimas.
 
 
 
-Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00114}{114}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
+Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00124}{124}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
 
 \Hypertarget{class_vector_a1b2b4d9dc3df91e091a709322b76859a}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!operator==@{operator==}}
 \index{operator==@{operator==}!Vector$<$ T $>$@{Vector$<$ T $>$}}
@@ -673,7 +685,7 @@ Lyginimo operatorius == (elementu palyginimas).
 
 
 
-Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00135}{135}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
+Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00145}{145}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
 
 \Hypertarget{class_vector_aba5a2729dbecd9873a9d4f7b2d0d2ce7}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!operator$>$@{operator$>$}}
 \index{operator$>$@{operator$>$}!Vector$<$ T $>$@{Vector$<$ T $>$}}
@@ -684,7 +696,7 @@ bool \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+operator$>$ (\begin
 
 
 
-Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00160}{160}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
+Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00170}{170}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
 
 \Hypertarget{class_vector_aa52b8c5b80c74523303491db09fb4636}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!operator$>$=@{operator$>$=}}
 \index{operator$>$=@{operator$>$=}!Vector$<$ T $>$@{Vector$<$ T $>$}}
@@ -695,7 +707,7 @@ bool \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+operator$>$= (\begi
 
 
 
-Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00161}{161}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
+Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00171}{171}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
 
 \Hypertarget{class_vector_a314b19cea6ad9ce76457e24ac8264bd8}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!operator\+[]\+@{operator[]}}
 \index{operator\+[]\+@{operator[]}!Vector$<$ T $>$@{Vector$<$ T $>$}}
@@ -710,7 +722,7 @@ Elemento prieiga be ribu tikrinimo.
 
 
 
-Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00187}{187}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
+Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00197}{197}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
 
 \Hypertarget{class_vector_a63cc62738d6c877aed773260d1f5d925}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!operator\+[]\+@{operator[]}}
 \index{operator\+[]\+@{operator[]}!Vector$<$ T $>$@{Vector$<$ T $>$}}
@@ -721,7 +733,7 @@ const T \& \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+operator\+[$\
 
 
 
-Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00188}{188}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
+Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00198}{198}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
 
 \Hypertarget{class_vector_adcba035109febbe55cba2a25f8483ba6}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!pop\_back@{pop\_back}}
 \index{pop\_back@{pop\_back}!Vector$<$ T $>$@{Vector$<$ T $>$}}
@@ -736,7 +748,7 @@ Pasalina paskutini elementa.
 
 
 
-Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00299}{299}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
+Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00309}{309}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
 
 \Hypertarget{class_vector_a4415960a83615855ec32f8169f641786}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!push\_back@{push\_back}}
 \index{push\_back@{push\_back}!Vector$<$ T $>$@{Vector$<$ T $>$}}
@@ -751,7 +763,7 @@ Prideda elementa i pabaiga (kopija).
 
 
 
-Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00282}{282}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
+Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00292}{292}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
 
 \Hypertarget{class_vector_a7e9c3a4530e85fd3490d932846307683}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!push\_back@{push\_back}}
 \index{push\_back@{push\_back}!Vector$<$ T $>$@{Vector$<$ T $>$}}
@@ -766,7 +778,7 @@ Prideda elementa i pabaiga (perkelimas).
 
 
 
-Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00291}{291}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
+Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00301}{301}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
 
 \Hypertarget{class_vector_a6bc79fc6de868cab9490ff7f1b2fecde}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!realloc\_count@{realloc\_count}}
 \index{realloc\_count@{realloc\_count}!Vector$<$ T $>$@{Vector$<$ T $>$}}
@@ -781,7 +793,7 @@ Grazina kiek kartu ivyko vidinis perskirstymas.
 
 
 
-Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00229}{229}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
+Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00239}{239}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
 
 \Hypertarget{class_vector_aa09be2eebfc577f335aa2786e5c5f237}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!reserve@{reserve}}
 \index{reserve@{reserve}!Vector$<$ T $>$@{Vector$<$ T $>$}}
@@ -801,7 +813,7 @@ Rezervuoja vietos bent new\+\_\+cap elementu, jei dar nera.
 \end{DoxyParams}
 
 
-Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00235}{235}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
+Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00245}{245}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
 
 \Hypertarget{class_vector_a2f674f38abd97fa406485b02fe8a2d20}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!resize@{resize}}
 \index{resize@{resize}!Vector$<$ T $>$@{Vector$<$ T $>$}}
@@ -816,7 +828,7 @@ Pakeicia dydi i count, ipildo value, jei reikia padidinti.
 
 
 
-Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00383}{383}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
+Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00393}{393}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
 
 \Hypertarget{class_vector_ad6454ce193263b8000d4c18cb0c3a0c8}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!shrink\_to\_fit@{shrink\_to\_fit}}
 \index{shrink\_to\_fit@{shrink\_to\_fit}!Vector$<$ T $>$@{Vector$<$ T $>$}}
@@ -831,7 +843,7 @@ Sumazina capacity iki size (jei reikia).
 
 
 
-Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00244}{244}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
+Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00254}{254}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
 
 \Hypertarget{class_vector_a9b439586cd10cb45d002ca9d6e3db43c}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!size@{size}}
 \index{size@{size}!Vector$<$ T $>$@{Vector$<$ T $>$}}
@@ -846,7 +858,7 @@ Grazina elementu skaiciu.
 
 
 
-Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00220}{220}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
+Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00230}{230}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
 
 \Hypertarget{class_vector_a04719915f34b27674e1eca2c42e48eb2}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!swap@{swap}}
 \index{swap@{swap}!Vector$<$ T $>$@{Vector$<$ T $>$}}
@@ -861,7 +873,7 @@ Sukeicia dvieju vektoriu turini.
 
 
 
-Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00403}{403}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
+Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00413}{413}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
 
 
 
@@ -877,7 +889,7 @@ size\+\_\+t \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+capacity\+\_
 
 
 
-Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00034}{34}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
+Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00044}{44}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
 
 \Hypertarget{class_vector_a09e20256bbab28c03e09e742ff3e5844}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!data\_@{data\_}}
 \index{data\_@{data\_}!Vector$<$ T $>$@{Vector$<$ T $>$}}
@@ -888,7 +900,7 @@ T\texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$
 
 
 
-Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00032}{32}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
+Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00042}{42}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
 
 \Hypertarget{class_vector_af1359eba899a744de083b54ca28267cb}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!realloc\_count\_@{realloc\_count\_}}
 \index{realloc\_count\_@{realloc\_count\_}!Vector$<$ T $>$@{Vector$<$ T $>$}}
@@ -899,7 +911,7 @@ size\+\_\+t \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+realloc\+\_\
 
 
 
-Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00035}{35}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
+Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00045}{45}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
 
 \Hypertarget{class_vector_a7d65f493d57b98e72dab8cc1e66bc9bc}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!size\_@{size\_}}
 \index{size\_@{size\_}!Vector$<$ T $>$@{Vector$<$ T $>$}}
@@ -910,7 +922,7 @@ size\+\_\+t \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+size\+\_\+ =
 
 
 
-Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00033}{33}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
+Definition at line \doxymbox{\hyperlink{vector__stl_8h_source_l00043}{43}} of file \doxymbox{\hyperlink{vector__stl_8h_source}{vector\+\_\+stl.\+h}}.
 
 
 
