@@ -542,20 +542,53 @@ void tyrimasVectorReallocations( )
 
     std::cout << "\n================ V3.0 TYRIMAS: Atminties perskirstymai (push_back iki 100M) ================\n\n";
 
-    std::cout << "Pildomas Vector iki " << SZ << " elementu, skaiciuojami perskirstymai...\n";
+    std::cout << "Pildomi std::vector ir Vector iki " << SZ << " elementu...\n\n";
+
+    size_t std_realloc = 0;
+    size_t std_final_cap = 0;
+    {
+        std::vector<int> v1;
+        size_t prev_cap = 0;
+        for ( size_t k = 1; k <= SZ; k++ )
+        {
+            v1.push_back( static_cast<int>( k ) );
+            if ( v1.capacity( ) != prev_cap )
+            {
+                std_realloc++;
+                prev_cap = v1.capacity( );
+            }
+        }
+        std_final_cap = v1.capacity( );
+    }
 
     Vector<int> v2;
     for ( size_t k = 1; k <= SZ; k++ )
         v2.push_back( static_cast<int>( k ) );
 
-    std::cout << "\nVector rezultatai:\n";
-    std::cout << "  Galutinis size:     " << v2.size( ) << "\n";
-    std::cout << "  Galutinis capacity: " << v2.capacity( ) << "\n";
-    std::cout << "  Perskirstymu sk.:   " << v2.realloc_count( ) << "\n";
+    std::cout << std::left
+        << std::setw( 18 ) << "Konteineris"
+        << std::setw( 18 ) << "Final size"
+        << std::setw( 18 ) << "Final capacity"
+        << std::setw( 18 ) << "Perskirstymai"
+        << "\n";
+    std::cout << std::string( 70, '-' ) << "\n";
 
-    std::cout << "\nstd::vector turi panasu elgesi (capacity dvigubinasi).\n";
-    std::cout << "Standartas neapibrezia tikslaus augimo koef., bet pas MSVC tai apie 1.5x,\n";
-    std::cout << "todel std::vector reallocation skaicius bus 1-2 kartus didesnis nei Vector x2 augimo.\n";
+    std::cout << std::left
+        << std::setw( 18 ) << "std::vector<int>"
+        << std::setw( 18 ) << SZ
+        << std::setw( 18 ) << std_final_cap
+        << std::setw( 18 ) << std_realloc
+        << "\n";
+
+    std::cout << std::left
+        << std::setw( 18 ) << "Vector<int>"
+        << std::setw( 18 ) << v2.size( )
+        << std::setw( 18 ) << v2.capacity( )
+        << std::setw( 18 ) << v2.realloc_count( )
+        << "\n";
+
+    std::cout << "\nIsvada: Vector naudoja x2 augima, std::vector (MSVC) - x1.5,\n";
+    std::cout << "todel std::vector dazniau perskirsto, bet eikvoja maziau atminties.\n";
 }
 
 void tyrimasVectorStudentai( bool mediana )
