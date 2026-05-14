@@ -481,17 +481,19 @@ Labaratorinis-v0.1/
 ├── .gitignore                           - Git ignoruojami failai
 ├── ConsoleApplication1.sln              - Visual Studio sprendimas
 ├── ConsoleApplication1/
-│   ├── main.cpp                         - Pagrindine programa su meniu (9 punktai)
+│   ├── main.cpp                         - Pagrindine programa su meniu (12 punktu)
 │   ├── studentu_io.cpp / studentu_io.h  - Ivedimo/isvedimo funkcijos
 │   ├── skaiciavimas.cpp / .h            - Balu skaiciavimo funkcijos
 │   ├── zmogus.h / zmogus.cpp            - Abstrakti bazine klase Zmogus
 │   ├── studentas.h / studentas.cpp      - Isvestine klase Studentas (Rule of Five + operator<<, >>)
 │   ├── studentas_utils.cpp / .h         - Studentu pagalbines funkcijos
-│   ├── testavimas.cpp / .h              - Tyrimai + testuotiKlase() rankinis testas
+│   ├── vector_stl.h                     - **v3.0**: Sablono klase Vector<T> (std::vector atkartojimas)
+│   ├── testavimas.cpp / .h              - Tyrimai (1-3) + V3.0 tyrimai (push_back, realloc, studentai)
 │   ├── exceptions.h                     - Klaidu klases (FailoKlaida, DuomenuKlaida)
 │   └── ConsoleApplication1.vcxproj      - Visual Studio projekto failas
 ├── tests/
-│   └── test_studentas.cpp               - GoogleTest unit testai (Rule of Five + I/O)
+│   ├── test_studentas.cpp               - GoogleTest unit testai Studentas klasei (Rule of Five + I/O)
+│   └── test_vector.cpp                  - **v3.0**: GoogleTest unit testai Vector<T> klasei (31 testas)
 └── docs/
     ├── dokumentacija.pdf                - Sukompiliuota Doxygen PDF dokumentacija
     ├── html/                            - HTML dokumentacija (atidaryti index.html)
