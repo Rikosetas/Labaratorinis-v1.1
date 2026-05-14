@@ -609,7 +609,7 @@ Susikompiliuoja **du** vykdomieji failai:
 build\Release\programa.exe
 ```
 
-Programa pateikia meniu su 9 punktais (rankinis ivedimas, generavimas, tyrimai, testavimas, ir t.t.).
+Programa pateikia meniu su 12 punktu (rankinis ivedimas, generavimas, 1-3 tyrimai, klases testavimas + 3 V3.0 tyrimai: push_back, realloc, studentai).
 
 ### Testu paleidimas
 
