@@ -713,6 +713,43 @@ v.resize(2);      // {1, 2}  (paskutiniai 2 elementai numesti)
 
 Padidina arba sumazina dydi, jei reikia padidinti — naujus elementus uzpildo `value` reiksme.
 
+### Spartos analize: `std::vector::push_back` vs `Vector::push_back`
+
+Tuscio konteinerio uzpildymas push_back metodu (Release konfiguracija, x64, MSVC 19.42):
+
+| Elementu sk. | std::vector (s) | Vector<T> (s) | Lyginimas |
+|--------------|-----------------|---------------|-----------|
+| 10 000      | 0.00004         | 0.00002       | x0.45     |
+| 100 000     | 0.00040         | 0.00027       | x0.66     |
+| 1 000 000   | 0.00223         | 0.00127       | x0.57     |
+| 10 000 000  | 0.02145         | 0.01752       | x0.82     |
+| 100 000 000 | 0.22682         | 0.16290       | x0.72     |
+
+**Komentaras:** Vector<T> klase visais dydziais yra **greitesne** uz `std::vector` (~0.45x-0.82x laiko). Pagrindine priezastis — paprastesne realizacija (be allocator abstrakcijos, be exception safety overhead) ir x2 (o ne x1.5 kaip MSVC) augimo koeficientas — todel maziau perskirstymu.
+
+### Atminties perskirstymai (push_back iki 100M elementu)
+
+| Konteineris      | Final size  | Final capacity | Perskirstymai |
+|------------------|-------------|-----------------|----------------|
+| std::vector<int> | 100 000 000 | 136 216 567    | **47**         |
+| Vector<int>      | 100 000 000 | 134 217 728    | **28**         |
+
+**Komentaras:** Vector<T> naudoja **x2 augima** (capacity 1, 2, 4, 8, 16, ...). MSVC `std::vector` naudoja **x1.5 augima**, todel del to **dazniau** perskirsto (47 vs 28), bet **eikvoja maziau** atminties (final capacity ne tiek "perdideja" virs reikiamo size). Todel ten kur svarbi pati push_back operacija — Vector laimi, ten kur svarbu maziau atminties — std::vector tinka geriau.
+
+### Spartos analize su Studentas duomenimis
+
+Pilnas darbas: nuskaitymas is failo + rusiavimas + skaidymas i kietiakius/vargsiukus (1 strategija):
+
+| Irasu sk.  | std::vector (s) | Vector (s) |
+|------------|------------------|-------------|
+| 1 000      | 0.00503          | 0.00479     |
+| 10 000     | 0.05120          | 0.05065     |
+| 100 000    | 0.50273          | 0.49561     |
+| 1 000 000  | 5.43341          | 5.62106     |
+| 10 000 000 | 56.65178         | 56.69971    |
+
+**Komentaras:** Mazesniems duomenu kiekiams (iki 100K) Vector<T> yra **greitesne arba tokia pati** kaip `std::vector`. Dideliems duomenu kiekiams (1M+) skirtumas mazas (~0.5%-3%), nes pagrindine kaste eina i string objektu kopijavima ir failo skaitymas, ne i konteineri. Ataskaita patvirtina, kad Vector klase **funkciskai pakeicia** `std::vector` Studentas tipo objektams.
+
 
 
 | Kriterijus | Balu | Igyvendinta |
