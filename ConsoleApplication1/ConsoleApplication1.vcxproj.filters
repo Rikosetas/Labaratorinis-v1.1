@@ -59,5 +59,8 @@
     <ClInclude Include="testavimas.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="vector_stl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

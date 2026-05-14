@@ -139,6 +139,7 @@
     <ClInclude Include="exceptions.h" />
     <ClInclude Include="studentu_io.h" />
     <ClInclude Include="skaiciavimas.h" />
+    <ClInclude Include="vector_stl.h" />
     <ClInclude Include="zmogus.h" />
     <ClInclude Include="studentas.h" />
     <ClInclude Include="studentas_utils.h" />
