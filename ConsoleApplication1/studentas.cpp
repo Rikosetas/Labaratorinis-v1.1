@@ -8,6 +8,8 @@ Studentas::Studentas()
 
 Studentas::~Studentas() noexcept
 {
+    n = 0;
+    egzaminas = 0;
 }
 
 Studentas::Studentas( const Studentas& kitas )

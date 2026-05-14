@@ -390,9 +390,10 @@ void tyrimasStrategiju( bool mediana )
         "studentai_10000.txt",
         "studentai_100000.txt",
         "studentai_1000000.txt",
-        "studentai_10000000.txt"
+        //"studentai_10000000.txt"
     };
-    const int bandymu_sk = 3;
+
+    const int bandymu_sk = 1;
 
     std::cout << "\n================ 3 TYRIMAS: Strategiju palyginimas ================\n";
     std::cout << "Kiekvienas matavimas atliktas " << bandymu_sk
@@ -412,7 +413,7 @@ void tyrimasStrategiju( bool mediana )
             << "\n";
         std::cout << std::string( 75, '-' ) << "\n";
 
-        for ( int i = 0; i < 5; i++ )
+        for ( int i = 0; i < sizeof( pavadinimai) / sizeof( pavadinimai[0]); i++ )
         {
             {
                 std::ifstream test( pavadinimai[i] );
@@ -445,4 +446,35 @@ void tyrimasStrategiju( bool mediana )
     }
 
     std::cout << "\nTyrimas baigtas.\n";
+
+    std::cout << "\n--- Kietiakiai/vargsiukai issaugojimas i failus ---\n";
+
+    bool rastasVienas = false;
+    for ( int i = 0; i < 5; i++ )
+    {
+        std::ifstream test( pavadinimai[i] );
+        if ( !test.is_open( ) )
+            continue;
+        test.close( );
+
+        rastasVienas = true;
+        std::string sk = std::to_string( dydziai[i] );
+
+        std::vector<Studentas> base = nuskaitytiIsFailoT<std::vector<Studentas>>( pavadinimai[i] );
+        rusiuotiPagalGalutini( base, mediana );
+
+        std::vector<Studentas> data = base;
+        std::vector<Studentas> kiet, varg;
+        strategija1( data, kiet, varg, mediana );
+
+        isvestiKategorijaIFaila( "kietiakiai_" + sk + ".txt", kiet, mediana );
+        isvestiKategorijaIFaila( "vargsiukai_"  + sk + ".txt", varg, mediana );
+
+        std::cout << "  " << std::setw( 10 ) << std::left << sk << " irasu  ->  "
+                  << "kietiakiai_" << sk << ".txt (" << kiet.size( ) << "),  "
+                  << "vargsiukai_"  << sk << ".txt (" << varg.size( ) << ")\n";
+    }
+
+    if ( !rastasVienas )
+        std::cout << "  Nera failu - pirma paleiskite 1 tyrima.\n";
 }
