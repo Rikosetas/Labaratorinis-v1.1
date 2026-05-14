@@ -1,0 +1,112 @@
+\doxysection{Console\+Application1/\+testavimas.cpp File Reference}
+\hypertarget{testavimas_8cpp}{}\label{testavimas_8cpp}\index{ConsoleApplication1/testavimas.cpp@{ConsoleApplication1/testavimas.cpp}}
+{\ttfamily \+\#include "{}testavimas.\+h"{}}\newline
+{\ttfamily \+\#include "{}skaiciavimas.\+h"{}}\newline
+{\ttfamily \+\#include "{}studentas\+\_\+utils.\+h"{}}\newline
+{\ttfamily \+\#include "{}exceptions.\+h"{}}\newline
+{\ttfamily \+\#include "{}io.\+h"{}}\newline
+{\ttfamily \+\#include $<$iostream$>$}\newline
+{\ttfamily \+\#include $<$fstream$>$}\newline
+{\ttfamily \+\#include $<$sstream$>$}\newline
+{\ttfamily \+\#include $<$iomanip$>$}\newline
+{\ttfamily \+\#include $<$chrono$>$}\newline
+{\ttfamily \+\#include $<$cstdlib$>$}\newline
+{\ttfamily \+\#include $<$string$>$}\newline
+{\ttfamily \+\#include $<$algorithm$>$}\newline
+{\ttfamily \+\#include $<$vector$>$}\newline
+{\ttfamily \+\#include $<$list$>$}\newline
+{\ttfamily \+\#include $<$deque$>$}\newline
+Include dependency graph for testavimas.\+cpp:\+
+% FIG 0
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{testavimas_8cpp_ab5bc16f0ed249eaefe97274efaedcbd5}{testuoti\+Klase}} ()
+\item 
+void \doxymbox{\hyperlink{testavimas_8cpp_a75ac01029e1eca54e0a6ed3917e41a20}{generuoti\+Faila}} (const std::\+string \&failo\+Vardas, int irasu\+\_\+sk, int nd\+\_\+kiekis)
+\item 
+std::\+vector$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \doxymbox{\hyperlink{testavimas_8cpp_ad3e61f0b1dbf65033476c6580ada7e84}{nuskaityti\+Is\+Failo}} (const std::\+string \&failo\+Vardas)
+\item 
+void \doxymbox{\hyperlink{testavimas_8cpp_a237fc11083ab9368feef3af674fd6d93}{isvesti\+Kategorija\+IFaila}} (const std::\+string \&failo\+Vardas, const std::\+vector$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&studentai, bool mediana)
+\item 
+void \doxymbox{\hyperlink{testavimas_8cpp_a25c65bd9493ddec4dfa339446cf7c155}{tyrimas1\+\_\+failu\+Kurimas}} ()
+\item 
+void \doxymbox{\hyperlink{testavimas_8cpp_a3aee0c2cca40e38874c72bf051f21531}{tyrimas\+Konteineriu}} (bool mediana)
+\item 
+void \doxymbox{\hyperlink{testavimas_8cpp_ab5005d600e804f3dc19e6ad589d3c3b2}{tyrimas\+Strategiju}} (bool mediana)
+\end{DoxyCompactItemize}
+
+
+\label{testavimas_8cpp_doc-func-members}
+\Hypertarget{testavimas_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{testavimas_8cpp_a75ac01029e1eca54e0a6ed3917e41a20}\index{testavimas.cpp@{testavimas.cpp}!generuotiFaila@{generuotiFaila}}
+\index{generuotiFaila@{generuotiFaila}!testavimas.cpp@{testavimas.cpp}}
+\doxysubsubsection{\texorpdfstring{generuotiFaila()}{generuotiFaila()}}
+{\footnotesize\ttfamily \label{testavimas_8cpp_a75ac01029e1eca54e0a6ed3917e41a20} 
+void generuoti\+Faila (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{failo\+Vardas}{, }\item[{int}]{irasu\+\_\+sk}{, }\item[{int}]{nd\+\_\+kiekis}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{testavimas_8cpp_source_l00182}{182}} of file \doxymbox{\hyperlink{testavimas_8cpp_source}{testavimas.\+cpp}}.
+
+\Hypertarget{testavimas_8cpp_a237fc11083ab9368feef3af674fd6d93}\index{testavimas.cpp@{testavimas.cpp}!isvestiKategorijaIFaila@{isvestiKategorijaIFaila}}
+\index{isvestiKategorijaIFaila@{isvestiKategorijaIFaila}!testavimas.cpp@{testavimas.cpp}}
+\doxysubsubsection{\texorpdfstring{isvestiKategorijaIFaila()}{isvestiKategorijaIFaila()}}
+{\footnotesize\ttfamily \label{testavimas_8cpp_a237fc11083ab9368feef3af674fd6d93} 
+void isvesti\+Kategorija\+IFaila (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{failo\+Vardas}{, }\item[{const std::\+vector$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&}]{studentai}{, }\item[{bool}]{mediana}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{testavimas_8cpp_source_l00226}{226}} of file \doxymbox{\hyperlink{testavimas_8cpp_source}{testavimas.\+cpp}}.
+
+\Hypertarget{testavimas_8cpp_ad3e61f0b1dbf65033476c6580ada7e84}\index{testavimas.cpp@{testavimas.cpp}!nuskaitytiIsFailo@{nuskaitytiIsFailo}}
+\index{nuskaitytiIsFailo@{nuskaitytiIsFailo}!testavimas.cpp@{testavimas.cpp}}
+\doxysubsubsection{\texorpdfstring{nuskaitytiIsFailo()}{nuskaitytiIsFailo()}}
+{\footnotesize\ttfamily \label{testavimas_8cpp_ad3e61f0b1dbf65033476c6580ada7e84} 
+std::\+vector$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ nuskaityti\+Is\+Failo (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{failo\+Vardas}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{testavimas_8cpp_source_l00221}{221}} of file \doxymbox{\hyperlink{testavimas_8cpp_source}{testavimas.\+cpp}}.
+
+\Hypertarget{testavimas_8cpp_ab5bc16f0ed249eaefe97274efaedcbd5}\index{testavimas.cpp@{testavimas.cpp}!testuotiKlase@{testuotiKlase}}
+\index{testuotiKlase@{testuotiKlase}!testavimas.cpp@{testavimas.cpp}}
+\doxysubsubsection{\texorpdfstring{testuotiKlase()}{testuotiKlase()}}
+{\footnotesize\ttfamily \label{testavimas_8cpp_ab5bc16f0ed249eaefe97274efaedcbd5} 
+void testuoti\+Klase (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{testavimas_8cpp_source_l00039}{39}} of file \doxymbox{\hyperlink{testavimas_8cpp_source}{testavimas.\+cpp}}.
+
+\Hypertarget{testavimas_8cpp_a25c65bd9493ddec4dfa339446cf7c155}\index{testavimas.cpp@{testavimas.cpp}!tyrimas1\_failuKurimas@{tyrimas1\_failuKurimas}}
+\index{tyrimas1\_failuKurimas@{tyrimas1\_failuKurimas}!testavimas.cpp@{testavimas.cpp}}
+\doxysubsubsection{\texorpdfstring{tyrimas1\_failuKurimas()}{tyrimas1\_failuKurimas()}}
+{\footnotesize\ttfamily \label{testavimas_8cpp_a25c65bd9493ddec4dfa339446cf7c155} 
+void tyrimas1\+\_\+failu\+Kurimas (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{testavimas_8cpp_source_l00262}{262}} of file \doxymbox{\hyperlink{testavimas_8cpp_source}{testavimas.\+cpp}}.
+
+\Hypertarget{testavimas_8cpp_a3aee0c2cca40e38874c72bf051f21531}\index{testavimas.cpp@{testavimas.cpp}!tyrimasKonteineriu@{tyrimasKonteineriu}}
+\index{tyrimasKonteineriu@{tyrimasKonteineriu}!testavimas.cpp@{testavimas.cpp}}
+\doxysubsubsection{\texorpdfstring{tyrimasKonteineriu()}{tyrimasKonteineriu()}}
+{\footnotesize\ttfamily \label{testavimas_8cpp_a3aee0c2cca40e38874c72bf051f21531} 
+void tyrimas\+Konteineriu (\begin{DoxyParamCaption}\item[{bool}]{mediana}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{testavimas_8cpp_source_l00313}{313}} of file \doxymbox{\hyperlink{testavimas_8cpp_source}{testavimas.\+cpp}}.
+
+\Hypertarget{testavimas_8cpp_ab5005d600e804f3dc19e6ad589d3c3b2}\index{testavimas.cpp@{testavimas.cpp}!tyrimasStrategiju@{tyrimasStrategiju}}
+\index{tyrimasStrategiju@{tyrimasStrategiju}!testavimas.cpp@{testavimas.cpp}}
+\doxysubsubsection{\texorpdfstring{tyrimasStrategiju()}{tyrimasStrategiju()}}
+{\footnotesize\ttfamily \label{testavimas_8cpp_ab5005d600e804f3dc19e6ad589d3c3b2} 
+void tyrimas\+Strategiju (\begin{DoxyParamCaption}\item[{bool}]{mediana}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{testavimas_8cpp_source_l00385}{385}} of file \doxymbox{\hyperlink{testavimas_8cpp_source}{testavimas.\+cpp}}.
+

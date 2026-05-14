@@ -442,3 +442,12 @@ cmake_install.cmake
 
 # Executables
 *.exe
+
+# Docs
+docs/latex/*.aux
+docs/latex/*.log
+docs/latex/*.out
+docs/latex/*.toc
+docs/latex/*.idx
+docs/latex/*.ilg
+docs/latex/*.ind
