@@ -787,6 +787,13 @@ Klase Vector<T> patikrinta 31 GoogleTest unit testu (failas [`tests/test_vector.
 | 10 | Atminties perskirstymai (100M elementu) |
 | 11 | Pilna studentu programa std::vector vs Vector |
 
+### v3.0 isvados
+
+1. **Push_back greitis:** Vector<T> visais dydziais (10K-100M) yra **greitesne** uz `std::vector` (~0.45x-0.82x laiko). Pagrindine priezastis — paprastesne realizacija (be allocator + exception safety overhead) ir x2 augimo koeficientas (vs MSVC `std::vector` x1.5).
+2. **Atminties perskirstymai:** Vector<T> atlieka **maziau** perskirstymu (28 vs 47 / 100M elementu) del agresyvesnio x2 augimo, bet uzima **panasiai** daugiau capacity (~134M vs 136M / final).
+3. **Pilna programa:** Vector<T> ir `std::vector` parodo **panasius** rezultatus (skirtumas <3% visiems dydziams). Tai patvirtina, kad Vector<T> klase **funkciskai pakeicia** `std::vector` ir nedaro programos letesnes.
+4. **Vector klase tinka kaip drop-in pakaitalas** `std::vector` klasei — visi pagrindiniai metodai (>35) ir Rule of Five igyvendinti, 31 GoogleTest unit testas patvirtina veikima.
+
 ---
 
 ## Vertinimo kriteriju mapping (v2.0)
