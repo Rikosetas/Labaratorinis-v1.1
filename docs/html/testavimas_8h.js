@@ -14,5 +14,8 @@ var testavimas_8h =
     [ "testuotiKlase", "testavimas_8h.html#ab5bc16f0ed249eaefe97274efaedcbd5", null ],
     [ "tyrimas1_failuKurimas", "testavimas_8h.html#a25c65bd9493ddec4dfa339446cf7c155", null ],
     [ "tyrimasKonteineriu", "testavimas_8h.html#a3aee0c2cca40e38874c72bf051f21531", null ],
-    [ "tyrimasStrategiju", "testavimas_8h.html#ab5005d600e804f3dc19e6ad589d3c3b2", null ]
+    [ "tyrimasStrategiju", "testavimas_8h.html#ab5005d600e804f3dc19e6ad589d3c3b2", null ],
+    [ "tyrimasVectorPushBack", "testavimas_8h.html#af1b6d2bd81e31c5baedd2f826ee83bda", null ],
+    [ "tyrimasVectorReallocations", "testavimas_8h.html#ac4f1dc8db00a94ba65ad0efaa37497cd", null ],
+    [ "tyrimasVectorStudentai", "testavimas_8h.html#ab27c83f0b6def8163d0299de17a8b4de", null ]
 ];

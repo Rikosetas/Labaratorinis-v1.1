@@ -1,4 +1,13 @@
 var searchData=
 [
-  ['vardas_0',['vardas',['../class_zmogus.html#a4d456bf4fea70f08e0b26517576cfbc0',1,'Zmogus']]]
+  ['t_0',['t',['../studentu__io_8cpp.html#af6ef6ed9da8c10f25e40324c6548530c',1,'studentu_io.cpp']]],
+  ['testavimas_2ecpp_1',['testavimas.cpp',['../testavimas_8cpp.html',1,'']]],
+  ['testavimas_2eh_2',['testavimas.h',['../testavimas_8h.html',1,'']]],
+  ['testuotiklase_3',['testuotiKlase',['../testavimas_8cpp.html#ab5bc16f0ed249eaefe97274efaedcbd5',1,'testuotiKlase():&#160;testavimas.cpp'],['../testavimas_8h.html#ab5bc16f0ed249eaefe97274efaedcbd5',1,'testuotiKlase():&#160;testavimas.cpp']]],
+  ['tyrimas1_5ffailukurimas_4',['tyrimas1_failuKurimas',['../testavimas_8cpp.html#a25c65bd9493ddec4dfa339446cf7c155',1,'tyrimas1_failuKurimas():&#160;testavimas.cpp'],['../testavimas_8h.html#a25c65bd9493ddec4dfa339446cf7c155',1,'tyrimas1_failuKurimas():&#160;testavimas.cpp']]],
+  ['tyrimaskonteineriu_5',['tyrimasKonteineriu',['../testavimas_8cpp.html#a3aee0c2cca40e38874c72bf051f21531',1,'tyrimasKonteineriu(bool mediana):&#160;testavimas.cpp'],['../testavimas_8h.html#a3aee0c2cca40e38874c72bf051f21531',1,'tyrimasKonteineriu(bool mediana):&#160;testavimas.cpp']]],
+  ['tyrimasstrategiju_6',['tyrimasStrategiju',['../testavimas_8cpp.html#ab5005d600e804f3dc19e6ad589d3c3b2',1,'tyrimasStrategiju(bool mediana):&#160;testavimas.cpp'],['../testavimas_8h.html#ab5005d600e804f3dc19e6ad589d3c3b2',1,'tyrimasStrategiju(bool mediana):&#160;testavimas.cpp']]],
+  ['tyrimasvectorpushback_7',['tyrimasVectorPushBack',['../testavimas_8cpp.html#af1b6d2bd81e31c5baedd2f826ee83bda',1,'tyrimasVectorPushBack():&#160;testavimas.cpp'],['../testavimas_8h.html#af1b6d2bd81e31c5baedd2f826ee83bda',1,'tyrimasVectorPushBack():&#160;testavimas.cpp']]],
+  ['tyrimasvectorreallocations_8',['tyrimasVectorReallocations',['../testavimas_8cpp.html#ac4f1dc8db00a94ba65ad0efaa37497cd',1,'tyrimasVectorReallocations():&#160;testavimas.cpp'],['../testavimas_8h.html#ac4f1dc8db00a94ba65ad0efaa37497cd',1,'tyrimasVectorReallocations():&#160;testavimas.cpp']]],
+  ['tyrimasvectorstudentai_9',['tyrimasVectorStudentai',['../testavimas_8cpp.html#ab27c83f0b6def8163d0299de17a8b4de',1,'tyrimasVectorStudentai(bool mediana):&#160;testavimas.cpp'],['../testavimas_8h.html#ab27c83f0b6def8163d0299de17a8b4de',1,'tyrimasVectorStudentai(bool mediana):&#160;testavimas.cpp']]]
 ];

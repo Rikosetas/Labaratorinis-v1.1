@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['vardas_0',['vardas',['../class_zmogus.html#a4d456bf4fea70f08e0b26517576cfbc0',1,'Zmogus']]]
+  ['i_0',['i',['../studentu__io_8cpp.html#a9b371ffd3af2ed25efa51eb3c5d8e6c3',1,'studentu_io.cpp']]]
 ];

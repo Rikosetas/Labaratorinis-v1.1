@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['generuotifaila_0',['generuotiFaila',['../testavimas_8cpp.html#a75ac01029e1eca54e0a6ed3917e41a20',1,'generuotiFaila(const std::string &amp;failoVardas, int irasu_sk, int nd_kiekis):&#160;testavimas.cpp'],['../testavimas_8h.html#a75ac01029e1eca54e0a6ed3917e41a20',1,'generuotiFaila(const std::string &amp;failoVardas, int irasu_sk, int nd_kiekis):&#160;testavimas.cpp']]],
-  ['generuotipazymius_1',['generuotiPazymius',['../studentas__utils_8cpp.html#a7e097cb53b65c53e2fa124179b85f835',1,'generuotiPazymius(Studentas &amp;s, int n):&#160;studentas_utils.cpp'],['../studentas__utils_8h.html#a7e097cb53b65c53e2fa124179b85f835',1,'generuotiPazymius(Studentas &amp;s, int n):&#160;studentas_utils.cpp']]],
-  ['generuotivarda_2',['generuotiVarda',['../studentas__utils_8cpp.html#a2f3bd10a2453605479db197d38a73134',1,'generuotiVarda(Studentas &amp;s, int indeksas):&#160;studentas_utils.cpp'],['../studentas__utils_8h.html#a2f3bd10a2453605479db197d38a73134',1,'generuotiVarda(Studentas &amp;s, int indeksas):&#160;studentas_utils.cpp']]]
+  ['f_0',['f',['../studentu__io_8cpp.html#a8d2eda6980327e149231e9bddbca5a98',1,'f(! s t r e a m . i s _ o p e n()) t h r o w F a i l o K l a i d a(&quot; N e p a v y k o a t i d a r y t i f a i l o k u r s i o k a i . t x t . &quot;):&#160;studentu_io.cpp'],['../studentu__io_8cpp.html#aeb185416148bdf1c69796da48eb9c64b',1,'f(! s t d ::g e t l i n e(s t r e a m, l i n e)) r e t u r n o u t:&#160;studentu_io.cpp']]],
+  ['failoklaida_1',['FailoKlaida',['../struct_failo_klaida.html',1,'FailoKlaida'],['../struct_failo_klaida.html#a634f5b56a76fbe9e2cc85e9f233ec945',1,'FailoKlaida::FailoKlaida()']]],
+  ['front_2',['front',['../class_vector.html#a0061cc9127a9cbf541439121998a1fdd',1,'Vector::front()'],['../class_vector.html#ae891494a5654af2db2a00d162c50985a',1,'Vector::front() const']]]
 ];

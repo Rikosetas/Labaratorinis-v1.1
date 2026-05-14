@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['nuskaitytiisfailo_0',['nuskaitytiIsFailo',['../testavimas_8cpp.html#ad3e61f0b1dbf65033476c6580ada7e84',1,'nuskaitytiIsFailo(const std::string &amp;failoVardas):&#160;testavimas.cpp'],['../testavimas_8h.html#ad3e61f0b1dbf65033476c6580ada7e84',1,'nuskaitytiIsFailo(const std::string &amp;failoVardas):&#160;testavimas.cpp']]],
-  ['nuskaitytiisfailot_1',['nuskaitytiIsFailoT',['../testavimas_8h.html#a964ea3ea014481cc5bc07e4d28dc31d4',1,'testavimas.h']]],
-  ['nuskaitytistudentus_2',['nuskaitytiStudentus',['../io_8cpp.html#a5a7cf372001a751851dd494127864fd2',1,'nuskaitytiStudentus():&#160;io.cpp'],['../io_8h.html#a5a7cf372001a751851dd494127864fd2',1,'nuskaitytiStudentus():&#160;io.cpp']]]
+  ['insert_0',['insert',['../class_vector.html#a543330cea78641b32eb35d37e3642b51',1,'Vector']]],
+  ['internal_5fgrow_1',['internal_grow',['../class_vector.html#a74bf43121c566975443205e7e9c824ea',1,'Vector']]],
+  ['isvestikategorijaifaila_2',['isvestiKategorijaIFaila',['../testavimas_8cpp.html#a237fc11083ab9368feef3af674fd6d93',1,'isvestiKategorijaIFaila(const std::string &amp;failoVardas, const std::vector&lt; Studentas &gt; &amp;studentai, bool mediana):&#160;testavimas.cpp'],['../testavimas_8h.html#a237fc11083ab9368feef3af674fd6d93',1,'isvestiKategorijaIFaila(const std::string &amp;failoVardas, const std::vector&lt; Studentas &gt; &amp;studentai, bool mediana):&#160;testavimas.cpp']]]
 ];

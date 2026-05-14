@@ -4,6 +4,7 @@ var hierarchy =
       [ "DuomenuKlaida", "struct_duomenu_klaida.html", null ],
       [ "FailoKlaida", "struct_failo_klaida.html", null ]
     ] ],
+    [ "Vector&lt; T &gt;", "class_vector.html", null ],
     [ "Zmogus", "class_zmogus.html", [
       [ "Studentas", "class_studentas.html", null ]
     ] ]

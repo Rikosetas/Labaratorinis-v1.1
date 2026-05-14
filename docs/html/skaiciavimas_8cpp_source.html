@@ -30,7 +30,7 @@ mermaid.initialize({ startOnLoad: true, theme: theme });
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Studentu rezultatu sistema<span id="projectnumber">&#160;v2.0</span>
+   <div id="projectname">Studentu rezultatu sistema<span id="projectnumber">&#160;v3.0</span>
    </div>
   </td>
  </tr>
@@ -122,23 +122,23 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('skaiciavimas_8
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;algorithm&gt;</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="foldopen" id="foldopen00004" data-start="{" data-end="}">
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno"><a class="line" href="skaiciavimas_8cpp.html#a75da14e44d8f1ad03b0e89a5fb70f826">    4</a></span><span class="keywordtype">double</span> <a class="code hl_function" href="skaiciavimas_8cpp.html#a75da14e44d8f1ad03b0e89a5fb70f826">skaiciuotiVidurki</a>( <span class="keyword">const</span> std::vector&lt;int&gt;&amp; nd, <span class="keywordtype">int</span> n )</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno"><a class="line" href="skaiciavimas_8cpp.html#a75da14e44d8f1ad03b0e89a5fb70f826">    4</a></span><span class="keywordtype">double</span> <a class="code hl_function" href="skaiciavimas_8cpp.html#a75da14e44d8f1ad03b0e89a5fb70f826">skaiciuotiVidurki</a>( <span class="keyword">const</span> std::vector&lt;int&gt;&amp; nd, <span class="keywordtype">int</span> <a class="code hl_variable" href="studentu__io_8cpp.html#a9d90295122d0523eec65122b41d4d5d3">n</a> )</div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>{</div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>    <span class="keywordflow">if</span> ( n == 0 )</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>    <span class="keywordflow">if</span> ( <a class="code hl_variable" href="studentu__io_8cpp.html#a9d90295122d0523eec65122b41d4d5d3">n</a> == 0 )</div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>        <span class="keywordflow">return</span> 0.0;</div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <span class="keywordtype">double</span> suma = 0;</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <span class="keywordflow">for</span> ( <span class="keywordtype">int</span> i = 0; i &lt; n; i++ )</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>        suma += nd [ i ];</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <span class="keywordflow">for</span> ( <span class="keywordtype">int</span> <a class="code hl_variable" href="studentu__io_8cpp.html#a9b371ffd3af2ed25efa51eb3c5d8e6c3">i</a> = 0; <a class="code hl_variable" href="studentu__io_8cpp.html#a9b371ffd3af2ed25efa51eb3c5d8e6c3">i</a> &lt; <a class="code hl_variable" href="studentu__io_8cpp.html#a9d90295122d0523eec65122b41d4d5d3">n</a>; <a class="code hl_variable" href="studentu__io_8cpp.html#a9b371ffd3af2ed25efa51eb3c5d8e6c3">i</a>++ )</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>        suma += nd [ <a class="code hl_variable" href="studentu__io_8cpp.html#a9b371ffd3af2ed25efa51eb3c5d8e6c3">i</a> ];</div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keywordflow">return</span> suma / n;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keywordflow">return</span> suma / <a class="code hl_variable" href="studentu__io_8cpp.html#a9d90295122d0523eec65122b41d4d5d3">n</a>;</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>}</div>
 </div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
 <div class="foldopen" id="foldopen00016" data-start="{" data-end="}">
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="skaiciavimas_8cpp.html#ac56ad4662eeccb4eaae8373683b59c79">   16</a></span><span class="keywordtype">double</span> <a class="code hl_function" href="skaiciavimas_8cpp.html#ac56ad4662eeccb4eaae8373683b59c79">skaiciuotiMediana</a>( <span class="keyword">const</span> std::vector&lt;int&gt;&amp; nd, <span class="keywordtype">int</span> n )</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="skaiciavimas_8cpp.html#ac56ad4662eeccb4eaae8373683b59c79">   16</a></span><span class="keywordtype">double</span> <a class="code hl_function" href="skaiciavimas_8cpp.html#ac56ad4662eeccb4eaae8373683b59c79">skaiciuotiMediana</a>( <span class="keyword">const</span> std::vector&lt;int&gt;&amp; nd, <span class="keywordtype">int</span> <a class="code hl_variable" href="studentu__io_8cpp.html#a9d90295122d0523eec65122b41d4d5d3">n</a> )</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>{</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordflow">if</span> ( n == 0 )</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordflow">if</span> ( <a class="code hl_variable" href="studentu__io_8cpp.html#a9d90295122d0523eec65122b41d4d5d3">n</a> == 0 )</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <span class="keywordflow">return</span> 0.0;</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    std::vector&lt;int&gt; copy = nd;</div>
@@ -146,10 +146,10 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('skaiciavimas_8
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordtype">double</span> rezultatas;</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordflow">if</span> ( n % 2 == 0 )</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        rezultatas = ( copy [ n / 2 - 1 ] + copy [ n / 2 ] ) / 2.0;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordflow">if</span> ( <a class="code hl_variable" href="studentu__io_8cpp.html#a9d90295122d0523eec65122b41d4d5d3">n</a> % 2 == 0 )</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        rezultatas = ( copy [ <a class="code hl_variable" href="studentu__io_8cpp.html#a9d90295122d0523eec65122b41d4d5d3">n</a> / 2 - 1 ] + copy [ <a class="code hl_variable" href="studentu__io_8cpp.html#a9d90295122d0523eec65122b41d4d5d3">n</a> / 2 ] ) / 2.0;</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        rezultatas = copy [ n / 2 ];</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        rezultatas = copy [ <a class="code hl_variable" href="studentu__io_8cpp.html#a9d90295122d0523eec65122b41d4d5d3">n</a> / 2 ];</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordflow">return</span> rezultatas;</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>}</div>
@@ -165,6 +165,8 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('skaiciavimas_8
 <div class="ttc" id="askaiciavimas_8cpp_html_ac56ad4662eeccb4eaae8373683b59c79"><div class="ttname"><a href="skaiciavimas_8cpp.html#ac56ad4662eeccb4eaae8373683b59c79">skaiciuotiMediana</a></div><div class="ttdeci">double skaiciuotiMediana(const std::vector&lt; int &gt; &amp;nd, int n)</div><div class="ttdef"><b>Definition</b> <a href="#l00016">skaiciavimas.cpp:16</a></div></div>
 <div class="ttc" id="askaiciavimas_8cpp_html_acedf5583f2f6ea2637392418c5e88932"><div class="ttname"><a href="skaiciavimas_8cpp.html#acedf5583f2f6ea2637392418c5e88932">skaiciuotiGalutini</a></div><div class="ttdeci">double skaiciuotiGalutini(double nd_rezultatas, int egz)</div><div class="ttdef"><b>Definition</b> <a href="#l00034">skaiciavimas.cpp:34</a></div></div>
 <div class="ttc" id="askaiciavimas_8h_html"><div class="ttname"><a href="skaiciavimas_8h.html">skaiciavimas.h</a></div></div>
+<div class="ttc" id="astudentu__io_8cpp_html_a9b371ffd3af2ed25efa51eb3c5d8e6c3"><div class="ttname"><a href="studentu__io_8cpp.html#a9b371ffd3af2ed25efa51eb3c5d8e6c3">i</a></div><div class="ttdeci">r e t u r n s t u d e n t a i</div><div class="ttdef"><b>Definition</b> <a href="studentu__io_8cpp_source.html#l00139">studentu_io.cpp:139</a></div></div>
+<div class="ttc" id="astudentu__io_8cpp_html_a9d90295122d0523eec65122b41d4d5d3"><div class="ttname"><a href="studentu__io_8cpp.html#a9d90295122d0523eec65122b41d4d5d3">n</a></div><div class="ttdeci">s t i n t &amp; n</div><div class="ttdef"><b>Definition</b> <a href="studentu__io_8cpp_source.html#l00091">studentu_io.cpp:92</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

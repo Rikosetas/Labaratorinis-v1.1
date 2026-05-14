@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['n_0',['n',['../class_studentas.html#a14fabf30f3d88c88d5974a4e0e3aaf0c',1,'Studentas']]],
-  ['nd_1',['nd',['../class_studentas.html#a38f5d821b9e66c9235e8ef4e6f190001',1,'Studentas']]]
+  ['d_0',['d',['../studentu__io_8cpp.html#a5b82aeace3824db8079f058920e3b937',1,'d:&#160;studentu_io.cpp'],['../studentu__io_8h.html#a5b82aeace3824db8079f058920e3b937',1,'d:&#160;studentu_io.h']]],
+  ['data_5f_1',['data_',['../class_vector.html#a09e20256bbab28c03e09e742ff3e5844',1,'Vector']]]
 ];

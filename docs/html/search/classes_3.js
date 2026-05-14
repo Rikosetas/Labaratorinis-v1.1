@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['zmogus_0',['Zmogus',['../class_zmogus.html',1,'']]]
+  ['vector_0',['Vector',['../class_vector.html',1,'']]]
 ];

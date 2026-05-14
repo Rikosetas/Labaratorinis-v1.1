@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['operator_3c_3c_0',['operator&lt;&lt;',['../studentas_8cpp.html#a8ef0139ac1bd9eb75f994ab35393cdad',1,'operator&lt;&lt;(std::ostream &amp;out, const Studentas &amp;s):&#160;studentas.cpp'],['../studentas_8h.html#a8ef0139ac1bd9eb75f994ab35393cdad',1,'operator&lt;&lt;(std::ostream &amp;out, const Studentas &amp;s):&#160;studentas.cpp']]],
-  ['operator_3d_1',['operator=',['../class_studentas.html#a8bd0a78e7c4ba39c5459c8e0b298bc47',1,'Studentas::operator=(const Studentas &amp;kitas)'],['../class_studentas.html#a3f542851deb85ac5cf58c6b62ab3b7c7',1,'Studentas::operator=(Studentas &amp;&amp;kitas) noexcept']]],
-  ['operator_3e_3e_2',['operator&gt;&gt;',['../studentas_8cpp.html#af8f35a3ee68335b1adb35ac85edf1c03',1,'operator&gt;&gt;(std::istream &amp;in, Studentas &amp;s):&#160;studentas.cpp'],['../studentas_8h.html#af8f35a3ee68335b1adb35ac85edf1c03',1,'operator&gt;&gt;(std::istream &amp;in, Studentas &amp;s):&#160;studentas.cpp']]]
+  ['m_0',['m',['../studentu__io_8cpp.html#a04a50d5d72d8f241365370f2c2360830',1,'studentu_io.cpp']]],
+  ['main_1',['main',['../main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main.cpp']]],
+  ['max_5fsize_2',['max_size',['../class_vector.html#a442b72c70b33b62d49c99845385bba51',1,'Vector']]]
 ];

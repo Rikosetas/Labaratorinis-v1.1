@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['rusiuotipagalgalutini_0',['rusiuotiPagalGalutini',['../testavimas_8h.html#ad1bc021b002495e66de2243f88f4a1d0',1,'testavimas.h']]],
-  ['rusiuotistudentus_1',['rusiuotiStudentus',['../studentas__utils_8cpp.html#aef93e6840799360c9e42b25caf8f8d2e',1,'rusiuotiStudentus(std::vector&lt; Studentas &gt; &amp;studentai, int rusiavimas):&#160;studentas_utils.cpp'],['../studentas__utils_8h.html#aef93e6840799360c9e42b25caf8f8d2e',1,'rusiuotiStudentus(std::vector&lt; Studentas &gt; &amp;studentai, int rusiavimas):&#160;studentas_utils.cpp']]]
+  ['pasirinktirusiavima_0',['pasirinktiRusiavima',['../studentas__utils_8cpp.html#a76f000be401902acf6424a446df972b8',1,'pasirinktiRusiavima():&#160;studentas_utils.cpp'],['../studentas__utils_8h.html#a76f000be401902acf6424a446df972b8',1,'pasirinktiRusiavima():&#160;studentas_utils.cpp']]],
+  ['pavarde_1',['pavarde',['../class_zmogus.html#a99cc96defe5d014db052cc754e989b16',1,'Zmogus']]],
+  ['pop_5fback_2',['pop_back',['../class_vector.html#adcba035109febbe55cba2a25f8483ba6',1,'Vector']]],
+  ['push_5fback_3',['push_back',['../class_vector.html#a4415960a83615855ec32f8169f641786',1,'Vector::push_back(const T &amp;value)'],['../class_vector.html#a7e9c3a4530e85fd3490d932846307683',1,'Vector::push_back(T &amp;&amp;value)']]]
 ];

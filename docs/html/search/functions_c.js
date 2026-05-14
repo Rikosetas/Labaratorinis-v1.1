@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['testuotiklase_0',['testuotiKlase',['../testavimas_8cpp.html#ab5bc16f0ed249eaefe97274efaedcbd5',1,'testuotiKlase():&#160;testavimas.cpp'],['../testavimas_8h.html#ab5bc16f0ed249eaefe97274efaedcbd5',1,'testuotiKlase():&#160;testavimas.cpp']]],
-  ['tyrimas1_5ffailukurimas_1',['tyrimas1_failuKurimas',['../testavimas_8cpp.html#a25c65bd9493ddec4dfa339446cf7c155',1,'tyrimas1_failuKurimas():&#160;testavimas.cpp'],['../testavimas_8h.html#a25c65bd9493ddec4dfa339446cf7c155',1,'tyrimas1_failuKurimas():&#160;testavimas.cpp']]],
-  ['tyrimaskonteineriu_2',['tyrimasKonteineriu',['../testavimas_8cpp.html#a3aee0c2cca40e38874c72bf051f21531',1,'tyrimasKonteineriu(bool mediana):&#160;testavimas.cpp'],['../testavimas_8h.html#a3aee0c2cca40e38874c72bf051f21531',1,'tyrimasKonteineriu(bool mediana):&#160;testavimas.cpp']]],
-  ['tyrimasstrategiju_3',['tyrimasStrategiju',['../testavimas_8cpp.html#ab5005d600e804f3dc19e6ad589d3c3b2',1,'tyrimasStrategiju(bool mediana):&#160;testavimas.cpp'],['../testavimas_8h.html#ab5005d600e804f3dc19e6ad589d3c3b2',1,'tyrimasStrategiju(bool mediana):&#160;testavimas.cpp']]]
+  ['realloc_5fcount_0',['realloc_count',['../class_vector.html#a6bc79fc6de868cab9490ff7f1b2fecde',1,'Vector']]],
+  ['reserve_1',['reserve',['../class_vector.html#aa09be2eebfc577f335aa2786e5c5f237',1,'Vector']]],
+  ['resize_2',['resize',['../class_vector.html#a2f674f38abd97fa406485b02fe8a2d20',1,'Vector']]],
+  ['rusiuotipagalgalutini_3',['rusiuotiPagalGalutini',['../testavimas_8h.html#ad1bc021b002495e66de2243f88f4a1d0',1,'testavimas.h']]],
+  ['rusiuotistudentus_4',['rusiuotiStudentus',['../studentas__utils_8cpp.html#aef93e6840799360c9e42b25caf8f8d2e',1,'rusiuotiStudentus(std::vector&lt; Studentas &gt; &amp;studentai, int rusiavimas):&#160;studentas_utils.cpp'],['../studentas__utils_8h.html#aef93e6840799360c9e42b25caf8f8d2e',1,'rusiuotiStudentus(std::vector&lt; Studentas &gt; &amp;studentai, int rusiavimas):&#160;studentas_utils.cpp']]]
 ];

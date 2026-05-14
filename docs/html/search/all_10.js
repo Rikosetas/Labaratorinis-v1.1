@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['_7estudentas_0',['~Studentas',['../class_studentas.html#ad1dea8966d55a496377a5fd621e1c76d',1,'Studentas']]],
-  ['_7ezmogus_1',['~Zmogus',['../class_zmogus.html#a64c712eed93f3dc770bb00df890292d7',1,'Zmogus']]]
+  ['zmogus_0',['Zmogus',['../class_zmogus.html',1,'Zmogus'],['../class_zmogus.html#aa7a8ba4d3c4778f9b35d59eef3e72574',1,'Zmogus::Zmogus()']]],
+  ['zmogus_2ecpp_1',['zmogus.cpp',['../zmogus_8cpp.html',1,'']]],
+  ['zmogus_2eh_2',['zmogus.h',['../zmogus_8h.html',1,'']]]
 ];
