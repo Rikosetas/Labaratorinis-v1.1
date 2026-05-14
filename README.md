@@ -750,6 +750,31 @@ Pilnas darbas: nuskaitymas is failo + rusiavimas + skaidymas i kietiakius/vargsi
 
 **Komentaras:** Mazesniems duomenu kiekiams (iki 100K) Vector<T> yra **greitesne arba tokia pati** kaip `std::vector`. Dideliems duomenu kiekiams (1M+) skirtumas mazas (~0.5%-3%), nes pagrindine kaste eina i string objektu kopijavima ir failo skaitymas, ne i konteineri. Ataskaita patvirtina, kad Vector klase **funkciskai pakeicia** `std::vector` Studentas tipo objektams.
 
+### Vector<T> unit testai
+
+Klase Vector<T> patikrinta 31 GoogleTest unit testu (failas [`tests/test_vector.cpp`](tests/test_vector.cpp)):
+
+| Kategorija | Testai |
+|------------|--------|
+| Konstruktoriai | DefaultKonstruktorius, KonstruktoriusSuDydziuIrReiksme, InitializerListKonstruktorius |
+| Rule of Five | KopijavimoKonstruktorius, KopijavimoPriskyrimas, PerkelimoKonstruktorius, PerkelimoPriskyrimas |
+| Elementu prieiga | OperatorIndekso, AtMetoda, FrontBack, DataMetoda |
+| Capacity | EmptyMetoda, ReserveMetoda, ShrinkToFit |
+| Modifikatoriai | PushBackVeikimas, PushBackReallocations, PopBack, ClearMetoda, InsertMetoda, EraseSingle, EmplaceBack, ResizeAugimas, ResizeMazinimas, SwapMetoda |
+| Iteratoriai | IteratoriaiBeginEnd, IteratoriaiSuStdAlgorithms, RangeForLoop |
+| Lyginimas | OperatoriaiLygus, OperatoriaiLeksikografiniai |
+| Reallocations | ReallocCountAugimas, ReallocCountSuReserve |
+
+**Bendras rezultatas:** 38 testai (7 Studentas + 31 Vector), visi praeina (`100% tests passed`).
+
+### Naujas meniu (3 V3.0 tyrimai)
+
+| Punktas | Aprasymas |
+|---------|-----------|
+| 9  | Push_back greicio lyginimas (std::vector vs Vector) |
+| 10 | Atminties perskirstymai (100M elementu) |
+| 11 | Pilna studentu programa std::vector vs Vector |
+
 
 
 | Kriterijus | Balu | Igyvendinta |
