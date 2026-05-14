@@ -1,4 +1,4 @@
-# Laboratorinis darbas v2.0 - Studentu rezultatu valdymo sistema
+# Laboratorinis darbas v3.0 - Studentu rezultatu valdymo sistema
 
 ## Aprasymas
 
@@ -26,7 +26,8 @@ Galutinis = 0.4 * (vidurkis arba mediana namu darbu) + 0.6 * egzamino balas
 | v1.1 | Konteineriu tyrimai, spartos palyginimas, kodo struktura optimizuota |
 | v1.2 | Rule of Five Studentas klasei, perdengtų I/O operatoriai (operator<<, operator>>), rankiniai testai |
 | v1.5 | Abstrakti bazine klase Zmogus, Studentas isvestine is Zmogus, paveldejimas, visi v1.2 testai patikrinti |
-| **v2.0** | **Doxygen dokumentacija (HTML + LaTeX + PDF), GoogleTest unit testai (Rule of Five + I/O operatoriai), `io.h` -> `studentu_io.h` pervadinimas** |
+| v2.0 | Doxygen dokumentacija (HTML + LaTeX + PDF), GoogleTest unit testai (Rule of Five + I/O operatoriai), `io.h` -> `studentu_io.h` pervadinimas |
+| **v3.0** | **Sablono klase `Vector<T>` (atkartoja `std::vector`), atminties perskirstymo skaitliukas, 31 unit testas Vector klasei, 3 nauji tyrimai (push_back, realloc, studentai)** |
 
 ---
 
